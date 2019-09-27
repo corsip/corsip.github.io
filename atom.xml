@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://lucoder.coding.me</id>
+    <id>http://www.lucoder.com</id>
     <title>牧轩日志录</title>
-    <updated>2019-09-27T13:54:56.363Z</updated>
+    <updated>2019-09-27T13:57:11.575Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="http://lucoder.coding.me"/>
-    <link rel="self" href="http://lucoder.coding.me/atom.xml"/>
-    <subtitle>corsip</subtitle>
-    <logo>http://lucoder.coding.me/images/avatar.png</logo>
-    <icon>http://lucoder.coding.me/favicon.ico</icon>
+    <link rel="alternate" href="http://www.lucoder.com"/>
+    <link rel="self" href="http://www.lucoder.com/atom.xml"/>
+    <subtitle>Computational Optical and Remote Sensing Image Processing</subtitle>
+    <logo>http://www.lucoder.com/images/avatar.png</logo>
+    <icon>http://www.lucoder.com/favicon.ico</icon>
     <rights>All rights reserved 2019, 牧轩日志录</rights>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>http://lucoder.coding.me/post/hello-gridea</id>
-        <link href="http://lucoder.coding.me/post/hello-gridea">
+        <id>http://www.lucoder.com/post/hello-gridea</id>
+        <link href="http://www.lucoder.com/post/hello-gridea">
         </link>
         <updated>2018-12-11T16:00:00.000Z</updated>
         <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
