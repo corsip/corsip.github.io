@@ -2,14 +2,28 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://www.lucoder.com</id>
     <title>牧轩日志录</title>
-    <updated>2019-09-27T13:57:11.575Z</updated>
+    <updated>2019-09-27T16:07:01.342Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="http://www.lucoder.com"/>
     <link rel="self" href="http://www.lucoder.com/atom.xml"/>
-    <subtitle>Computational Optical and Remote Sensing Image Processing</subtitle>
+    <subtitle>&lt;p align=&quot;center&quot;&gt;
+Computational Optical and Remote Sensing Image Processing&lt;br /&gt;
+光学计算与遥感处理
+&lt;/p&gt;</subtitle>
     <logo>http://www.lucoder.com/images/avatar.png</logo>
     <icon>http://www.lucoder.com/favicon.ico</icon>
     <rights>All rights reserved 2019, 牧轩日志录</rights>
+    <entry>
+        <title type="html"><![CDATA[Newlifex修仙（一） 超级配置文件]]></title>
+        <id>http://www.lucoder.com/post/newlifex_xmlconfig</id>
+        <link href="http://www.lucoder.com/post/newlifex_xmlconfig">
+        </link>
+        <updated>2019-09-27T15:02:54.000Z</updated>
+        <summary type="html"><![CDATA[<p>新生命团队基础框架X组件，包括日志、数据库、网络、RPC、序列化、缓存、Windows服务、多线程等模块，支持.Net Framework/.netstandard/Mono。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>新生命团队基础框架X组件，包括日志、数据库、网络、RPC、序列化、缓存、Windows服务、多线程等模块，支持.Net Framework/.netstandard/Mono。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
         <id>http://www.lucoder.com/post/hello-gridea</id>
