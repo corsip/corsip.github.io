@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>GDAL波段分离 | 牧轩日志录</title>
+<meta name="description" content="&lt;p align=&#34;center&#34;&gt;
+Computational Optical and Remote Sensing Image Processing&lt;br /&gt;
+光学计算与遥感处理
+&lt;/p&gt;">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://corsip.github.io/favicon.ico?v=1569661310773">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://corsip.github.io/styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://corsip.github.io">
+        <img src="https://corsip.github.io/images/avatar.png?v=1569661310773" class="site-logo">
+        <h1 class="site-title">牧轩日志录</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="https://corsip.github.io/post/tools/" class="site-nav" target="_blank">
+            工具
+          </a>
+        
+      
+        
+          <a href="https://corsip.github.io/post/links/" class="site-nav">
+            链接
+          </a>
+        
+      
+        
+          <a href="https://corsip.github.io/post/about/" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/corsip" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      <p align="center">
+Computational Optical and Remote Sensing Image Processing<br />
+光学计算与遥感处理
+</p>
+    </div>
+    <div class="site-footer">
+      <a href="/">牧轩居士</a> | <a href="https://pan.lucoder.com" target="_blank">网盘</a> | <a href="https://mirrors.lucoder.com" target="_blank">镜像</a> | <a href="https://oss.lucoder.com/" target="_blank">图床</a> | <a href="https://gridea.dev/" target="_blank">Gridea</a> | <a class="rss" href="https://corsip.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">GDAL波段分离</h2>
+            <div class="post-date">2019-09-28</div>
+            
+            <div class="post-content">
+              <p>波段分离一般最常用的还是OpenCV，使用OpenCV的split方法可以直接对波段分离，并且效果不错，但是有一个问题是只能处理有限波段的数据，比如波段超过一定的数目就无法完成波段分离工作，或者数据有损失，所以就需要使用GDAL处理，并且可以实现不同的驱动方式实现图像的处理。</p>
+<!-- more -->
+<h1 id="opencv的波段发分离方式">OpenCV的波段发分离方式</h1>
+<p>OpenCV中自带两个方法<code>split</code>方法和<code>merge</code>方法，两个方法可以实现图像的波段分离和波段的合并。</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;opencv2/opencv.hpp&gt;
+
+using namespace std;
+using namespace cv;
+
+int main(){
+
+    Mat mat = imread(&quot;E:/lena.jpg&quot;,CV_LOAD_UNCHANGED);
+    string save = &quot;E:/bands&quot;;
+    vector&lt;Mat&gt; bands;
+    split(mat,bands);
+
+    char path[1024];
+    for(int i = 0; i &lt; bands.size(); i++)
+    {
+        sprintf(path,&quot;%s/%d.tif&quot;,save.c_str(),i);
+        imwrite(path,bands[i]);
+    }
+
+    return 0;
+}
+</code></pre>
+<p>对于有限波段比如三波段或者四波段还能处理，但是超过几个波段时处理就会出现一些问题。</p>
+<h1 id="gdal波段分离">GDAL波段分离</h1>
+<p>对于遥感图像一般都有多个波段，分波段处理数据是一个比较常见的方式，但是OpenCV既然满足不了可以使用GDAL进行波段分离，本文使用的是<code>GDAL2.04</code>，下面是一个波段分离函数:</p>
+<pre><code class="language-cpp">// v是src文件，save文件是保存文件， bandIndex是需要的波段，1-n
+void Spearation(string v, string save, int bandIndex)
+{
+	char path[1024];
+	GDALAllRegister();
+	GDALDataset* datasetRead = (GDALDataset*)GDALOpen(v.c_str(), GA_ReadOnly);
+	GDALRasterBand* band = datasetRead-&gt;GetRasterBand(bandIndex);
+
+	int width = band-&gt;GetXSize();
+	int height = band-&gt;GetYSize();
+	GDALDataType type = band-&gt;GetRasterDataType();
+	sprintf(path, &quot;%s/result_%d.tif&quot;,
+		save.c_str(),
+		bandIndex);
+
+	//可以是GTiff 或者 ENVI等不同的驱动
+	GDALDriver* driver = GetGDALDriverManager()-&gt;GetDriverByName(&quot;GTiff&quot;);
+	GDALDataset* datasetWrite = driver-&gt;Create(path,
+		width,
+		height, 1,
+		band-&gt;GetRasterDataType(), NULL);
+	GDALRasterBand* writer = datasetWrite-&gt;GetRasterBand(1);
+
+	unsigned char* pMemData = (unsigned char*)CPLMalloc(band-&gt;GetXSize() * 100);
+	int endFlag = band-&gt;GetYSize() / 100;
+	for (int i = 0; i &lt; endFlag; i++)
+	{
+		band-&gt;RasterIO(
+			GF_Read, 0, i * 100,
+			width, 100, pMemData,
+			height, 100, GDT_Byte,
+			0, 0);
+
+		writer-&gt;RasterIO(
+			GF_Write, 0, i * 100,
+			width, 100, pMemData,
+			height, 100, GDT_Byte,
+			0, 0);
+	}
+	CPLFree(pMemData);
+	writer-&gt;FlushCache();
+}
+</code></pre>
+<p>但是需要注意的是，GDAL的波段下标是从1开始的，如果直接使用0波段会报错的。</p>
+<hr>
+<p>2019/09/28 更新</p>
+<pre><code class="language-python">import os,sys
+import cv2
+from osgeo import gdal
+import numpy as np
+from Lucoder import Trace
+
+def bandSeparations(files,pms):
+    for file in files:
+        bandSeparation(file,pms)
+        Trace(&quot;process {} done!&quot;.format(file))
+
+def bandSeparation(file,pms):
+    s = os.path.splitext(os.path.basename(os.path.realpath(file)))[0]
+    filename = &quot;{}/{}_{}.tif&quot;.format(pms[&quot;save&quot;],s,pms[&quot;band&quot;])
+    
+    dataset = gdal.Open(file)
+    band = dataset.GetRasterBand(1)#取第三波段
+    
+    iarray = band.ReadAsArray(0,0,dataset.RasterXSize,dataset.RasterYSize)
+    
+    driver = gdal.GetDriverByName(&quot;GTiff&quot;)
+    writer = driver.Create(filename, dataset.RasterXSize, dataset.RasterYSize, 1, gdal.GDT_UInt16)
+    writer.GetRasterBand(1).WriteArray(iarray)
+    del writer
+
+pms={
+    &quot;save&quot;:&quot;F:/data/save/&quot;,
+    &quot;band&quot;:1
+}
+bandSeparations([
+    &quot;F:/data/a.tif&quot;,
+    &quot;F:/data/b.tif&quot;,
+    &quot;F:/data/c.tif&quot;,
+    &quot;F:/data/d.tif&quot;],pms)
+</code></pre>
+<h1 id="源码分享">源码分享</h1>
+<p>源代码是采用的<code>GDAL 2.04</code>版本，开发IDE是<code>Visual Studio 2019</code>，下载地址：</p>
+<p>如果你有CSDN积分，请点击这个链接，支持一下博主，使用<a href="">CSDN链接</a>下载，如果没有CSDN积分可以使用<a href="">博客园</a>的下载链接直接下载。</p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://corsip.github.io/post/umiznB83M">
+                  <h3 class="post-title">
+                    OpenCV类型对照表
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>
