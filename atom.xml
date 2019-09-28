@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://corsip.github.io</id>
     <title>牧轩日志录</title>
-    <updated>2019-09-28T08:30:11.864Z</updated>
+    <updated>2019-09-28T08:41:33.416Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://corsip.github.io"/>
     <link rel="self" href="https://corsip.github.io/atom.xml"/>
@@ -13,6 +13,17 @@ Computational Optical and Remote Sensing Image Processing&lt;br /&gt;
     <logo>https://corsip.github.io/images/avatar.png</logo>
     <icon>https://corsip.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, 牧轩日志录</rights>
+    <entry>
+        <title type="html"><![CDATA[Java中的SSM框架配置]]></title>
+        <id>https://corsip.github.io/post/BL8IfLp3F</id>
+        <link href="https://corsip.github.io/post/BL8IfLp3F">
+        </link>
+        <updated>2019-09-28T08:38:16.000Z</updated>
+        <summary type="html"><![CDATA[<p>SSM框架是JavaWeb中常用的框架，包括<code>Spring</code>、<code>Spring MVC</code>、<code>Mybatis</code>三种框架的一个整合。其中任意两个框架都可以相互组合<code>SS框架</code>、<code>SM</code>（O(∩_∩)O~）框架（两种情况：<code>Spring + Mybatis</code>、<code>Spring MVC + Mybatis</code>）。具体的详细情况可以参考这篇文章<a href='http://blog.csdn.net/daniel_fei/article/details/56670751' target='_blank'>http://blog.csdn.net/daniel_fei/article/details/56670751</a>。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>SSM框架是JavaWeb中常用的框架，包括<code>Spring</code>、<code>Spring MVC</code>、<code>Mybatis</code>三种框架的一个整合。其中任意两个框架都可以相互组合<code>SS框架</code>、<code>SM</code>（O(∩_∩)O~）框架（两种情况：<code>Spring + Mybatis</code>、<code>Spring MVC + Mybatis</code>）。具体的详细情况可以参考这篇文章<a href='http://blog.csdn.net/daniel_fei/article/details/56670751' target='_blank'>http://blog.csdn.net/daniel_fei/article/details/56670751</a>。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[OpenCV类型对照表]]></title>
         <id>https://corsip.github.io/post/umiznB83M</id>
@@ -100,29 +111,14 @@ Computational Optical and Remote Sensing Image Processing&lt;br /&gt;
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[使用Github建立博客系统]]></title>
-        <id>https://corsip.github.io/post/rRRoX7zPA</id>
-        <link href="https://corsip.github.io/post/rRRoX7zPA">
+        <title type="html"><![CDATA[C++实现生产者消费者模型]]></title>
+        <id>https://corsip.github.io/post/6mprAxRaw</id>
+        <link href="https://corsip.github.io/post/6mprAxRaw">
         </link>
-        <updated>2018-10-01T12:24:29.000Z</updated>
-        <summary type="html"><![CDATA[<p><code>Github Pages</code>是一个免费的静态页面托管平台，很多人都基于<code>Github Page</code> 建立独立博客，笔者也是很早就开始建立个人博客，但是原先是基于<code>Typecho</code>的程序，但是<code>Typecho</code>是有PHP写的，所以就需要付出服务器成本，而<code>Github Page</code>则是一个免费的，所以博主的文章将会慢慢移植到<code>Github Page</code>上面。</p>
+        <updated>2019-06-19T08:32:53.000Z</updated>
+        <summary type="html"><![CDATA[<p>生产者-消费者模式是一个十分经典的多线程并发协作的模式，弄懂生产者-消费者问题能够让我们对并发编程的理解加深。所谓生产者-消费者问题，实际上主要是包含了两类线程，一种是生产者线程用于生产数据，另一种是消费者线程用于消费数据，为了解耦生产者和消费者的关系，通常会采用共享的数据区域，就像是一个仓库，生产者生产数据之后直接放置在共享数据区中，并不需要关心消费者的行为；而消费者只需要从共享数据区中去获取数据，就不再需要关心生产者的行为。但是，这个共享数据区域中应该具备这样的线程间并发协作的功能：</p>
 ]]></summary>
-        <content type="html"><![CDATA[<p><code>Github Pages</code>是一个免费的静态页面托管平台，很多人都基于<code>Github Page</code> 建立独立博客，笔者也是很早就开始建立个人博客，但是原先是基于<code>Typecho</code>的程序，但是<code>Typecho</code>是有PHP写的，所以就需要付出服务器成本，而<code>Github Page</code>则是一个免费的，所以博主的文章将会慢慢移植到<code>Github Page</code>上面。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[联想拯救者电脑装Ubuntu没有WIFI]]></title>
-        <id>https://corsip.github.io/post/egY_ZZMqj</id>
-        <link href="https://corsip.github.io/post/egY_ZZMqj">
-        </link>
-        <updated>2018-07-26T14:13:42.000Z</updated>
-        <summary type="html"><![CDATA[<blockquote>
-<p>最近给联想电脑装Ubuntu系统，但是装完之后总是无法启动WIFI，而宽带上网却可以，给出一个解决办法，但是该办法应该只适合联想电脑，其他电脑请自测！</p>
-</blockquote>
-]]></summary>
-        <content type="html"><![CDATA[<blockquote>
-<p>最近给联想电脑装Ubuntu系统，但是装完之后总是无法启动WIFI，而宽带上网却可以，给出一个解决办法，但是该办法应该只适合联想电脑，其他电脑请自测！</p>
-</blockquote>
+        <content type="html"><![CDATA[<p>生产者-消费者模式是一个十分经典的多线程并发协作的模式，弄懂生产者-消费者问题能够让我们对并发编程的理解加深。所谓生产者-消费者问题，实际上主要是包含了两类线程，一种是生产者线程用于生产数据，另一种是消费者线程用于消费数据，为了解耦生产者和消费者的关系，通常会采用共享的数据区域，就像是一个仓库，生产者生产数据之后直接放置在共享数据区中，并不需要关心消费者的行为；而消费者只需要从共享数据区中去获取数据，就不再需要关心生产者的行为。但是，这个共享数据区域中应该具备这样的线程间并发协作的功能：</p>
 ]]></content>
     </entry>
 </feed>

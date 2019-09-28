@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>XmlConfig | 牧轩日志录</title>
+<title>Jetson TX2 不同的工作模式 | 牧轩日志录</title>
 <meta name="description" content="&lt;p align=&#34;center&#34;&gt;
 Computational Optical and Remote Sensing Image Processing&lt;br /&gt;
 光学计算与遥感处理
@@ -113,34 +113,102 @@ Computational Optical and Remote Sensing Image Processing<br />
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="current-tag">标签: XmlConfig</h2>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://corsip.github.io/post/newlifex_xmlconfig">
-                  <h2 class="post-title">Newlifex修仙（一） 超级配置文件</h2>
-                </a>
-                <div class="post-date">
-                  2019-09-27
-                </div>
-                <div class="post-abstract">
-                  <p>新生命团队基础框架X组件，包括日志、数据库、网络、RPC、序列化、缓存、Windows服务、多线程等模块，支持.Net Framework/.netstandard/Mono。</p>
-
-                </div>
+          <div class="post-detail">
+            <h2 class="post-title">Jetson TX2 不同的工作模式</h2>
+            <div class="post-date">2019-03-18</div>
+            
+              <div class="feature-container" style="background-image: url('https://oss.lucoder.com/md/2019/03/18/201903181122.png')">
               </div>
-              
-                <a class="right" href="https://corsip.github.io/post/newlifex_xmlconfig">
-                  <div class="feature-container" style="background-image: url('https://www.newlifex.com/logo.png')">
-                  </div>
-                </a>
-              
-            </article>
-          
+            
+            <div class="post-content">
+              <h2 id="原理图">原理图</h2>
+<figure data-type="image" tabindex="1"><img src="https://oss.lucoder.com/md/2019/03/18/201903181122.png" alt="201903181120"></figure>
+<h2 id="几种不同的工作模式">几种不同的工作模式</h2>
+<table>
+<thead>
+<tr>
+<th>mode</th>
+<th>mode name</th>
+<th>Denver</th>
+<th>Frequency</th>
+<th>ARM</th>
+<th>Frequency</th>
+<th>GPU</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Max-N</td>
+<td>2</td>
+<td>2.0GHz</td>
+<td>4</td>
+<td>2.0GHz</td>
+<td>1.3GHz</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Max-Q</td>
+<td>0</td>
+<td></td>
+<td>4</td>
+<td>1.2GHz</td>
+<td>0.85GHz</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Max-P Core-ALL</td>
+<td>2</td>
+<td>1.4GHz</td>
+<td>4</td>
+<td>1.4GHz</td>
+<td>1.12GHz</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Max-P ARM</td>
+<td>0</td>
+<td>2.0GHz</td>
+<td>4</td>
+<td>2.0GHz</td>
+<td>1.12GHz</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Max-P Denver</td>
+<td>2</td>
+<td>2.0GHz</td>
+<td>4</td>
+<td></td>
+<td>1.12GHz</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>建议使用3,因为使用1的电源功率必须跟上,否则卡GPU,如果是用FairyOS系统,则必须使用多核心.</p>
+</blockquote>
+<pre><code class="language-shell"># 查看运行模式
+sudo nvpmodel -q --verbose
+# 查看运行模式
+sudo nvpmodel -m 0
+</code></pre>
 
-          <div class="pagination-container">
-  
-  
-</div>
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://corsip.github.io/post/rRRoX7zPA">
+                  <h3 class="post-title">
+                    使用Github建立博客系统
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
 
         </div>
       </div>
