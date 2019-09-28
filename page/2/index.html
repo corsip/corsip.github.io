@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>Windows系列产品大客户版批量激活 | 牧轩日志录</title>
+<title>牧轩日志录</title>
 <meta name="description" content="&lt;p align=&#34;center&#34;&gt;
 Computational Optical and Remote Sensing Image Processing&lt;br /&gt;
 光学计算与遥感处理
@@ -113,61 +113,35 @@ Computational Optical and Remote Sensing Image Processing<br />
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <div class="post-detail">
-            <h2 class="post-title">Windows系列产品大客户版批量激活</h2>
-            <div class="post-date">2019-08-04</div>
-            
-              <div class="feature-container" style="background-image: url('https://oss.lucoder.com/uploads/2019/08/04/20190804112643.png')">
-              </div>
-            
-            <div class="post-content">
-              <p>本文介绍如何使用KMS激活Windows产品，包括操作系统、Office等。</p>
-<!-- more -->
-<h1 id="激活windows-10">激活Windows 10</h1>
-<p>找到Powershell，然后右键管理员身份运行，依次输入下面的命令，注意将$host切换成为你组织的服务器地址：</p>
-<pre><code class="language-shell">slmgr.vbs -upk
-
-slmgr.vbs -ipk W269N-WFGWX-YVC9B-4J6C9-T83GX    #注意！！不同系统版本这里的激活码不一样，请往下翻寻找表格！
-
-slmgr.vbs -skms $host
-
-slmgr.vbs -ato
-
-slmgr.vbs -dlv
-</code></pre>
-<p>如果组织服务器不挂，就可以激活，并且每七天自动链接一次服务器对系统续期，KMS都是180天激活的机制，所以必须保证至少每半年必须重新链接到服务器一次。</p>
-<h1 id="激活office">激活Office</h1>
-<p>如同上步骤，管理员身份运行Powershell管理器，然后依次进行下面的操作：</p>
-<pre><code class="language-shell">cd &quot;C:\Program Files\Microsoft Office\Office16&quot; #进入Office安装目录，注意32位和64位的目录不一样
-
-cscript ospp.vbs /sethst:$host
-
-cscript ospp.vbs /act
-</code></pre>
-<p>即可激活，但是有一种情况，会遇到下面的错误:</p>
-<figure data-type="image" tabindex="1"><img src="https://oss.lucoder.com/uploads/2019/08/04/20190804112643.png" alt="20190804112643"></figure>
-<p>说明你的软件不支持KMS方式激活，需要首先转成批量版：</p>
-<p>就需要下载一个程序：【<a href="https://www.lanzous.com/i4nm9yh">Office版本转换工具</a>】</p>
-<figure data-type="image" tabindex="2"><img src="https://oss.lucoder.com/uploads/2019/08/04/20190804112611.png" alt="20190804112611"></figure>
-<p>转换完毕之后可以重新激活，当然你也看到，软件中提供激活，但这个是本地激活，支持正版，请购买正版服务！</p>
-<figure data-type="image" tabindex="3"><img src="https://oss.lucoder.com/uploads/2019/08/04/20190804112656.png" alt="20190804112656"></figure>
-
-            </div>
-            
-            
-              <div class="next-post">
-                <div class="next">下一篇</div>
-                <a href="https://corsip.github.io/post/JViBv93-k">
-                  <h3 class="post-title">
-                    C++实现三维向量及其计算
-                  </h3>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://corsip.github.io/post/CBl_WG5K_">
+                  <h2 class="post-title">JetsonTx2刷机</h2>
                 </a>
+                <div class="post-date">
+                  2018-07-25
+                </div>
+                <div class="post-abstract">
+                  <p>Jetson TX2是有NVIDIA发布的一款Som（Ssytem on Module）嵌入式设备，该设备包含双核的丹弗2（NVIDIA Denver2）CPU和4个Cortex-A57的ARM核心，以及集成了拥有256个核心的Pascal GPU。拥有128位LPDDR4的8G内存一块，平台运行了Linux系统。Jetson TX2 拥有很高的计算性能，在预置的Ubuntu 16.04 LTS上测试，每秒计算超过1万亿次，并且原生支持FP16半精度计算。Jetson TX2拥有更低的功耗水平，在满载高性能计算情况下，仅需要7.5w的功率即可。所以Jetson TX2被广泛用于嵌入式GPU计算。</p>
+
+                </div>
               </div>
-            
+              
+                <a class="right" href="https://corsip.github.io/post/CBl_WG5K_">
+                  <div class="feature-container" style="background-image: url('https://oss.lucoder.com/uploads/2018/07/25/20180725120342.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
 
-            
-
-          </div>
+          <div class="pagination-container">
+  
+    <a href="https://corsip.github.io/" class="prev"><i class="icon-arrow-ios-back-outline"></i> 上一页</a>
+  
+  
+</div>
 
         </div>
       </div>

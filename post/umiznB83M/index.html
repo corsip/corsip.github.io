@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>Windows系列产品大客户版批量激活 | 牧轩日志录</title>
+<title>OpenCV类型对照表 | 牧轩日志录</title>
 <meta name="description" content="&lt;p align=&#34;center&#34;&gt;
 Computational Optical and Remote Sensing Image Processing&lt;br /&gt;
 光学计算与遥感处理
@@ -114,52 +114,88 @@ Computational Optical and Remote Sensing Image Processing<br />
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">Windows系列产品大客户版批量激活</h2>
-            <div class="post-date">2019-08-04</div>
-            
-              <div class="feature-container" style="background-image: url('https://oss.lucoder.com/uploads/2019/08/04/20190804112643.png')">
-              </div>
+            <h2 class="post-title">OpenCV类型对照表</h2>
+            <div class="post-date">2019-09-28</div>
             
             <div class="post-content">
-              <p>本文介绍如何使用KMS激活Windows产品，包括操作系统、Office等。</p>
+              <p>有些时候处理图像必须使用灰度图或者单波段处理，速度快，所以在处理之前就需要先判断图像类型，根据不同类型图像使用不同方法处理。</p>
 <!-- more -->
-<h1 id="激活windows-10">激活Windows 10</h1>
-<p>找到Powershell，然后右键管理员身份运行，依次输入下面的命令，注意将$host切换成为你组织的服务器地址：</p>
-<pre><code class="language-shell">slmgr.vbs -upk
-
-slmgr.vbs -ipk W269N-WFGWX-YVC9B-4J6C9-T83GX    #注意！！不同系统版本这里的激活码不一样，请往下翻寻找表格！
-
-slmgr.vbs -skms $host
-
-slmgr.vbs -ato
-
-slmgr.vbs -dlv
+<h1 id="获取type值">获取type值</h1>
+<pre><code class="language-cpp">Mat img = imread(&quot;lena.jpg&quot;,0);
+cout&lt;&lt;img.type()&lt;&lt;endl;
 </code></pre>
-<p>如果组织服务器不挂，就可以激活，并且每七天自动链接一次服务器对系统续期，KMS都是180天激活的机制，所以必须保证至少每半年必须重新链接到服务器一次。</p>
-<h1 id="激活office">激活Office</h1>
-<p>如同上步骤，管理员身份运行Powershell管理器，然后依次进行下面的操作：</p>
-<pre><code class="language-shell">cd &quot;C:\Program Files\Microsoft Office\Office16&quot; #进入Office安装目录，注意32位和64位的目录不一样
-
-cscript ospp.vbs /sethst:$host
-
-cscript ospp.vbs /act
-</code></pre>
-<p>即可激活，但是有一种情况，会遇到下面的错误:</p>
-<figure data-type="image" tabindex="1"><img src="https://oss.lucoder.com/uploads/2019/08/04/20190804112643.png" alt="20190804112643"></figure>
-<p>说明你的软件不支持KMS方式激活，需要首先转成批量版：</p>
-<p>就需要下载一个程序：【<a href="https://www.lanzous.com/i4nm9yh">Office版本转换工具</a>】</p>
-<figure data-type="image" tabindex="2"><img src="https://oss.lucoder.com/uploads/2019/08/04/20190804112611.png" alt="20190804112611"></figure>
-<p>转换完毕之后可以重新激活，当然你也看到，软件中提供激活，但这个是本地激活，支持正版，请购买正版服务！</p>
-<figure data-type="image" tabindex="3"><img src="https://oss.lucoder.com/uploads/2019/08/04/20190804112656.png" alt="20190804112656"></figure>
+<h1 id="opencv-类型对照表">OpenCV 类型对照表</h1>
+<table>
+<thead>
+<tr>
+<th>基本类型</th>
+<th>C1(或留空)</th>
+<th>C2</th>
+<th>C3</th>
+<th>C4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CV_8U</td>
+<td>0</td>
+<td>8</td>
+<td>16</td>
+<td>24</td>
+</tr>
+<tr>
+<td>CV_8S</td>
+<td>1</td>
+<td>9</td>
+<td>17</td>
+<td>25</td>
+</tr>
+<tr>
+<td>CV_16U</td>
+<td>2</td>
+<td>10</td>
+<td>18</td>
+<td>26</td>
+</tr>
+<tr>
+<td>CV_16S</td>
+<td>3</td>
+<td>11</td>
+<td>19</td>
+<td>27</td>
+</tr>
+<tr>
+<td>CV_32S</td>
+<td>4</td>
+<td>12</td>
+<td>20</td>
+<td>28</td>
+</tr>
+<tr>
+<td>CV_32F</td>
+<td>5</td>
+<td>13</td>
+<td>21</td>
+<td>29</td>
+</tr>
+<tr>
+<td>CV_64F</td>
+<td>6</td>
+<td>14</td>
+<td>22</td>
+<td>30</td>
+</tr>
+</tbody>
+</table>
 
             </div>
             
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://corsip.github.io/post/JViBv93-k">
+                <a href="https://corsip.github.io/post/XWuCpU95o">
                   <h3 class="post-title">
-                    C++实现三维向量及其计算
+                    CMake版本升级
                   </h3>
                 </a>
               </div>

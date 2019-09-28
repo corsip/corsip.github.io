@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://corsip.github.io</id>
     <title>牧轩日志录</title>
-    <updated>2019-09-28T08:21:06.695Z</updated>
+    <updated>2019-09-28T08:30:11.864Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://corsip.github.io"/>
     <link rel="self" href="https://corsip.github.io/atom.xml"/>
@@ -14,6 +14,28 @@ Computational Optical and Remote Sensing Image Processing&lt;br /&gt;
     <icon>https://corsip.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, 牧轩日志录</rights>
     <entry>
+        <title type="html"><![CDATA[OpenCV类型对照表]]></title>
+        <id>https://corsip.github.io/post/umiznB83M</id>
+        <link href="https://corsip.github.io/post/umiznB83M">
+        </link>
+        <updated>2019-09-28T08:27:09.000Z</updated>
+        <summary type="html"><![CDATA[<p>有些时候处理图像必须使用灰度图或者单波段处理，速度快，所以在处理之前就需要先判断图像类型，根据不同类型图像使用不同方法处理。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>有些时候处理图像必须使用灰度图或者单波段处理，速度快，所以在处理之前就需要先判断图像类型，根据不同类型图像使用不同方法处理。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[CMake版本升级]]></title>
+        <id>https://corsip.github.io/post/XWuCpU95o</id>
+        <link href="https://corsip.github.io/post/XWuCpU95o">
+        </link>
+        <updated>2019-09-28T08:26:11.000Z</updated>
+        <summary type="html"><![CDATA[<p>CMake 是一个可扩展的开源系统，以独立于编译器的方式在操作系统中管理生成过程。与许多跨平台系统不同，CMake 旨在与本机生成环境结合使用。放置在每个源目录中的简单配置文件（称为 CMakeLists.txt 文件）用于生成标准生成文件（例如，在 Unix 上生成文件，在 Windows MSVC 中生成项目/工作区），这些文件以通常的方式使用。CMake 可以生成本机生成环境，该环境将编译源代码、创建库、生成包装和任意组合生成可执行文件。CMake 支持就地和出位生成，因此可以支持来自单个源树的多个生成。CMake 还支持静态和动态库生成。CMake 的另一个不错的功能是，它生成一个缓存文件，该文件旨在与图形编辑器一起使用。例如，当 CMake 运行时，它会查找文件、库和可执行文件，并且可能会遇到可选的生成指令。此信息将收集到缓存中，用户可能会在生成本机生成文件之前更改这些信息。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>CMake 是一个可扩展的开源系统，以独立于编译器的方式在操作系统中管理生成过程。与许多跨平台系统不同，CMake 旨在与本机生成环境结合使用。放置在每个源目录中的简单配置文件（称为 CMakeLists.txt 文件）用于生成标准生成文件（例如，在 Unix 上生成文件，在 Windows MSVC 中生成项目/工作区），这些文件以通常的方式使用。CMake 可以生成本机生成环境，该环境将编译源代码、创建库、生成包装和任意组合生成可执行文件。CMake 支持就地和出位生成，因此可以支持来自单个源树的多个生成。CMake 还支持静态和动态库生成。CMake 的另一个不错的功能是，它生成一个缓存文件，该文件旨在与图形编辑器一起使用。例如，当 CMake 运行时，它会查找文件、库和可执行文件，并且可能会遇到可选的生成指令。此信息将收集到缓存中，用户可能会在生成本机生成文件之前更改这些信息。</p>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Newlifex修仙（一） 超级配置文件]]></title>
         <id>https://corsip.github.io/post/newlifex_xmlconfig</id>
         <link href="https://corsip.github.io/post/newlifex_xmlconfig">
@@ -23,6 +45,13 @@ Computational Optical and Remote Sensing Image Processing&lt;br /&gt;
 ]]></summary>
         <content type="html"><![CDATA[<p>新生命团队基础框架X组件，包括日志、数据库、网络、RPC、序列化、缓存、Windows服务、多线程等模块，支持.Net Framework/.netstandard/Mono。</p>
 ]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Windows 10 编译Mingw版本OpenCV]]></title>
+        <id>https://corsip.github.io/post/C76sG8kdU</id>
+        <link href="https://corsip.github.io/post/C76sG8kdU">
+        </link>
+        <updated>2019-09-20T12:28:08.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[Windows系列产品大客户版批量激活]]></title>
@@ -60,6 +89,28 @@ Computational Optical and Remote Sensing Image Processing&lt;br /&gt;
 ]]></content>
     </entry>
     <entry>
+        <title type="html"><![CDATA[C++ N叉树的实现]]></title>
+        <id>https://corsip.github.io/post/Xc_mGc7gi</id>
+        <link href="https://corsip.github.io/post/Xc_mGc7gi">
+        </link>
+        <updated>2019-07-11T04:24:47.000Z</updated>
+        <summary type="html"><![CDATA[<p>最近一个项目需要使用多叉树结构来存储数据，但是基于平时学习的都是二叉树的结构，以及网上都是二叉树为基础来进行学习，所以今天实现一个多叉树的数据结构。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>最近一个项目需要使用多叉树结构来存储数据，但是基于平时学习的都是二叉树的结构，以及网上都是二叉树为基础来进行学习，所以今天实现一个多叉树的数据结构。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[使用Github建立博客系统]]></title>
+        <id>https://corsip.github.io/post/rRRoX7zPA</id>
+        <link href="https://corsip.github.io/post/rRRoX7zPA">
+        </link>
+        <updated>2018-10-01T12:24:29.000Z</updated>
+        <summary type="html"><![CDATA[<p><code>Github Pages</code>是一个免费的静态页面托管平台，很多人都基于<code>Github Page</code> 建立独立博客，笔者也是很早就开始建立个人博客，但是原先是基于<code>Typecho</code>的程序，但是<code>Typecho</code>是有PHP写的，所以就需要付出服务器成本，而<code>Github Page</code>则是一个免费的，所以博主的文章将会慢慢移植到<code>Github Page</code>上面。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p><code>Github Pages</code>是一个免费的静态页面托管平台，很多人都基于<code>Github Page</code> 建立独立博客，笔者也是很早就开始建立个人博客，但是原先是基于<code>Typecho</code>的程序，但是<code>Typecho</code>是有PHP写的，所以就需要付出服务器成本，而<code>Github Page</code>则是一个免费的，所以博主的文章将会慢慢移植到<code>Github Page</code>上面。</p>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[联想拯救者电脑装Ubuntu没有WIFI]]></title>
         <id>https://corsip.github.io/post/egY_ZZMqj</id>
         <link href="https://corsip.github.io/post/egY_ZZMqj">
@@ -72,17 +123,6 @@ Computational Optical and Remote Sensing Image Processing&lt;br /&gt;
         <content type="html"><![CDATA[<blockquote>
 <p>最近给联想电脑装Ubuntu系统，但是装完之后总是无法启动WIFI，而宽带上网却可以，给出一个解决办法，但是该办法应该只适合联想电脑，其他电脑请自测！</p>
 </blockquote>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[JetsonTx2刷机]]></title>
-        <id>https://corsip.github.io/post/CBl_WG5K_</id>
-        <link href="https://corsip.github.io/post/CBl_WG5K_">
-        </link>
-        <updated>2018-07-25T05:12:06.000Z</updated>
-        <summary type="html"><![CDATA[<p>Jetson TX2是有NVIDIA发布的一款Som（Ssytem on Module）嵌入式设备，该设备包含双核的丹弗2（NVIDIA Denver2）CPU和4个Cortex-A57的ARM核心，以及集成了拥有256个核心的Pascal GPU。拥有128位LPDDR4的8G内存一块，平台运行了Linux系统。Jetson TX2 拥有很高的计算性能，在预置的Ubuntu 16.04 LTS上测试，每秒计算超过1万亿次，并且原生支持FP16半精度计算。Jetson TX2拥有更低的功耗水平，在满载高性能计算情况下，仅需要7.5w的功率即可。所以Jetson TX2被广泛用于嵌入式GPU计算。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>Jetson TX2是有NVIDIA发布的一款Som（Ssytem on Module）嵌入式设备，该设备包含双核的丹弗2（NVIDIA Denver2）CPU和4个Cortex-A57的ARM核心，以及集成了拥有256个核心的Pascal GPU。拥有128位LPDDR4的8G内存一块，平台运行了Linux系统。Jetson TX2 拥有很高的计算性能，在预置的Ubuntu 16.04 LTS上测试，每秒计算超过1万亿次，并且原生支持FP16半精度计算。Jetson TX2拥有更低的功耗水平，在满载高性能计算情况下，仅需要7.5w的功率即可。所以Jetson TX2被广泛用于嵌入式GPU计算。</p>
 ]]></content>
     </entry>
 </feed>
