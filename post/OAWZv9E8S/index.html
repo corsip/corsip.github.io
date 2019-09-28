@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>C#使用CUDA | 牧轩日志录</title>
+<meta name="description" content="&lt;p align=&#34;center&#34;&gt;
+Computational Optical and Remote Sensing Image Processing&lt;br /&gt;
+光学计算与遥感处理
+&lt;/p&gt;">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://corsip.github.io/favicon.ico?v=1569658746730">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://corsip.github.io/styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://corsip.github.io">
+        <img src="https://corsip.github.io/images/avatar.png?v=1569658746730" class="site-logo">
+        <h1 class="site-title">牧轩日志录</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="https://corsip.github.io/post/tools/" class="site-nav" target="_blank">
+            工具
+          </a>
+        
+      
+        
+          <a href="https://corsip.github.io/post/links/" class="site-nav">
+            链接
+          </a>
+        
+      
+        
+          <a href="https://corsip.github.io/post/about/" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/corsip" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      <p align="center">
+Computational Optical and Remote Sensing Image Processing<br />
+光学计算与遥感处理
+</p>
+    </div>
+    <div class="site-footer">
+      <a href="/">牧轩居士</a> | <a href="https://pan.lucoder.com" target="_blank">网盘</a> | <a href="https://mirrors.lucoder.com" target="_blank">镜像</a> | <a href="https://oss.lucoder.com/" target="_blank">图床</a> | <a href="https://gridea.dev/" target="_blank">Gridea</a> | <a class="rss" href="https://corsip.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">C#使用CUDA</h2>
+            <div class="post-date">2019-07-29</div>
+            
+              <div class="feature-container" style="background-image: url('https://oss.lucoder.com/uploads/2019/07/29/20190729100704.png')">
+              </div>
+            
+            <div class="post-content">
+              <p>随着信息处理的爆炸增长，传统使用CPU计算已经无法满足计算作业增长的需求，GPU的出现为批量作业提供了新的契机。GPU计算拥有很类库，比如CUDA、OpenCL等，但是可以发现CUDA是其中相对比较成熟的一个，也是目前应用最为广发的一种。于此同时开发语言的飞速发展，呈现百花齐放状态，C#语言简单高效，所以本文讲述如何使用C#调用CUDA进行GPU计算。</p>
+<!-- more-->
+<h2 id="前言">前言</h2>
+<p>最近几年计算机有了巨大发展，各种开发语言百花齐放，但是笔者还是钟爱C#语言，尤其是目前微软的生态开放，.NET 技术的跨平台加上方便高效的Visual Studio IDE，使得C#语言的占比不断增加。</p>
+<p>【B站小飞机】<a href="https://www.bilibili.com/video/av61239925">C#调用CUDA实现GPU计算</a></p>
+<p>本文使用的是C#语言调用C++开发的CUDA类库实现GPU计算，基本条件如下：</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>操作系统</td>
+<td>Windows 10</td>
+</tr>
+<tr>
+<td>CUDA版本</td>
+<td>10.1</td>
+</tr>
+<tr>
+<td>Visual Studio</td>
+<td>2019 Enterprise</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>上述的环境是笔者的环境，如有异同按实际条件。</p>
+</blockquote>
+<h2 id="方法论">方法论</h2>
+<p>本小结介绍使用C++语言开发CUDA程序的共享链接库的方法以及如何使用C#语言调用CUDA类库。</p>
+<h3 id="创建c类库">创建C++类库</h3>
+<p>首先打开Visual Studio，然后创建C++的动态链接库项目，注意一定是动态链接库，请勿使用静态链接库，可能会有错误。</p>
+<figure data-type="image" tabindex="1"><img src="https://oss.lucoder.com/uploads/2019/07/29/20190729092151.png" alt="20190729092151"></figure>
+<figure data-type="image" tabindex="2"><img src="https://oss.lucoder.com/uploads/2019/07/29/20190729092227.png" alt="20190729092227"></figure>
+<p>项目创建完毕之后可以看到下面的界面：</p>
+<figure data-type="image" tabindex="3"><img src="https://oss.lucoder.com/uploads/2019/07/29/20190729092250.png" alt="20190729092250"></figure>
+<p>创建一个和外界交互的<code>cudaApi.h</code>文件、两个和CUDA相关的文件<code>CudaKernel.cuh</code>和<code>CudaKernel.cu</code>，当然可以缺省为一个文件，但是本着约定大于配置的原则，建议使用两个文件，一个是CUDA的源码文件一个是CUDA的头文件，在头文件中声明函数，源码文件对函数进行实现，之后效果如下：</p>
+<figure data-type="image" tabindex="4"><img src="https://oss.lucoder.com/uploads/2019/07/29/20190729092322.png" alt="20190729092322"></figure>
+<figure data-type="image" tabindex="5"><img src="https://oss.lucoder.com/uploads/2019/07/29/20190729092433.png" alt="20190729092433"></figure>
+<p>然后配置一下工程，需要注意的是建议全局是x64环境，必须保证C++的动态链接库项目和C#的项目是同一种类型，一般FX(.NET Framework)默认的是Any CPU，不要使用这个选项，直接指定x64或者x86。</p>
+<p>右键选中项目，【生成依赖】 --&gt; 【自定义生成】 --&gt; 【勾选CUDA10】(当然不排除你的事CUDA9或者CUDA8)</p>
+<figure data-type="image" tabindex="6"><img src="https://oss.lucoder.com/uploads/2019/07/29/20190729094355.png" alt="20190729094355"></figure>
+<figure data-type="image" tabindex="7"><img src="https://oss.lucoder.com/uploads/2019/07/29/20190729094420.png" alt="20190729094420"></figure>
+<p>然后选择两个CUDA的核文件，选择属性，选中CUDA C/C++</p>
+<figure data-type="image" tabindex="8"><img src="https://oss.lucoder.com/uploads/2019/07/29/20190729094624.png" alt="20190729094624"></figure>
+<figure data-type="image" tabindex="9"><img src="https://oss.lucoder.com/uploads/2019/07/29/20190729094656.png" alt="20190729094656"></figure>
+<p>最后选中项目右键，找到【连接器】--&gt; 【输入】，在类库中输入<code>cudart.lib</code>，点击确定。</p>
+<figure data-type="image" tabindex="10"><img src="https://oss.lucoder.com/uploads/2019/07/29/20190729095129.png" alt="20190729095129"></figure>
+<p>作为初期实验，建议先复制我的代码，先理解这个流程之后再自己自定义创建CUDA类库。</p>
+<pre><code class="language-cpp">//cudaApi.h
+#pragma once
+#define CUDADD_API __declspec(dllexport)
+extern &quot;C&quot; {
+	//CUDA API
+	CUDADD_API int arrayAdd(int* a, int* b, int* c, int size);
+}
+</code></pre>
+<pre><code class="language-cpp">//CudaKernel.cuh
+#include &quot;cudaApi.h&quot;
+#include &quot;cuda_runtime.h&quot;  
+#include &quot;device_launch_parameters.h&quot;
+
+__global__ void addKernel(int* c, const int* a, const int* b);
+CUDADD_API int arrayAdd(int* a, int* b, int* c, int size);
+</code></pre>
+<p>CUDA核心实现代码<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mrow></mrow><mrow><mo>[</mo><mn>1</mn><mo>]</mo></mrow></msup></mrow><annotation encoding="application/x-tex">^{[1]}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8879999999999999em;vertical-align:0em;"></span><span class="mord"><span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">[</span><span class="mord mtight">1</span><span class="mclose mtight">]</span></span></span></span></span></span></span></span></span></span></span></span>：</p>
+<pre><code class="language-cpp">//CudaKernel.cu
+#include &quot;CudaKernel.cuh&quot;
+
+__global__ void addKernel(int* c, const int* a, const int* b)
+{
+	int i = threadIdx.x;
+	c[i] = a[i] + b[i];
+}
+CUDADD_API int arrayAdd(int c[], int a[], int b[], int size)
+{
+	int result = -1;
+	int* dev_a = 0;
+	int* dev_b = 0;
+	int* dev_c = 0;
+	cudaError_t cudaStatus;
+
+	cudaStatus = cudaSetDevice(0);
+	if (cudaStatus != cudaSuccess) {
+		result = 1;
+		goto Error;
+	}
+	cudaStatus = cudaMalloc((void**)&amp; dev_c, size * sizeof(int));
+	if (cudaStatus != cudaSuccess) {
+		result = 2;
+		goto Error;
+	}
+	cudaStatus = cudaMalloc((void**)&amp; dev_a, size * sizeof(int));
+	if (cudaStatus != cudaSuccess) {
+		result = 3;
+		goto Error;
+	}
+	cudaStatus = cudaMalloc((void**)&amp; dev_b, size * sizeof(int));
+	if (cudaStatus != cudaSuccess) {
+		result = 4;
+		goto Error;
+	}
+	cudaStatus = cudaMemcpy(dev_a, a, size * sizeof(int), cudaMemcpyHostToDevice);
+	if (cudaStatus != cudaSuccess) {
+		result = 5;
+		goto Error;
+	}
+	cudaStatus = cudaMemcpy(dev_b, b, size * sizeof(int), cudaMemcpyHostToDevice);
+	if (cudaStatus != cudaSuccess) {
+		result = 6;
+		goto Error;
+	}
+	addKernel &lt;&lt; &lt;10, size &gt;&gt; &gt; (dev_c, dev_a, dev_b);
+	cudaStatus = cudaDeviceSynchronize();
+	if (cudaStatus != cudaSuccess) {
+		result = 7;
+		goto Error;
+	}
+	cudaStatus = cudaMemcpy(c, dev_c, size * sizeof(int), cudaMemcpyDeviceToHost);
+	if (cudaStatus != cudaSuccess) {
+		result = 8;
+		goto Error;
+	}
+	result = 0;
+	cudaStatus = cudaDeviceReset();
+	if (cudaStatus != cudaSuccess) {
+		return 9;
+	}
+Error:
+	cudaFree(dev_c);
+	cudaFree(dev_a);
+	cudaFree(dev_b);
+	return result;
+}
+</code></pre>
+<p>重新生成程序如果不报错就可以成功生成一个CUDA的DLL动态链接库。</p>
+<figure data-type="image" tabindex="11"><img src="https://oss.lucoder.com/uploads/2019/07/29/20190729095458.png" alt="20190729095458"></figure>
+<figure data-type="image" tabindex="12"><img src="https://oss.lucoder.com/uploads/2019/07/29/20190729095619.png" alt="20190729095619"></figure>
+<p>到此为止CUDA的动态链接库编写完成，开始编写C#程序，本程序使用的是<code>.NET Core 2.2</code>，如果你的电脑没有此环境可以自己创建一个C#的控制台项目，代码均相同。</p>
+<h3 id="创建c类库-2">创建C#类库</h3>
+<p>创建C#项目不再赘述，直接创建控制台项目即可完成测试，下面提供一个我的C#的一个类作为参考：</p>
+<pre><code class="language-C#">//CudaRunner.cs
+class CudaRunner
+    {
+        public void Run()
+        {
+            var a = new int[] { 1, 2, 3, 45, 456, 454, 1, 4, 65, 32, 456, 1, 56, 32, 512, 3, 5416, 86, 54, 4236, 12, 113, 321 };
+            var b = new int[] { 1, 2, 3, 45, 456, 454, 1, 4, 65, 32, 456, 1, 56, 32, 512, 3, 5416, 86, 54, 4236, 12, 113, 321 };
+            var c = new int[a.Length];
+
+            arrayAdd(c, a, b, a.Length);
+
+            for (int i = 0; i &lt; c.Length; i++)
+            {
+                Console.WriteLine(&quot;{0} + {1} = {2}&quot;, a[i], b[i], c[i]);
+            }
+        }
+        //.NET Framework 可以相对路径，.NET Core 就需要用绝对路径，或者自己配置
+        [DllImport(@&quot;C:\Users\muxuan\source\repos\CudaSharpDemo\x64\Debug\CudaSharp.dll&quot;, CallingConvention = CallingConvention.StdCall)]
+        public static extern int arrayAdd(int[] c, int[] a, int[] b, int size);
+    }
+</code></pre>
+<p>然后在控制台的<code>Program.cs</code>中调用一下即可，再次强调，这里不要使用<code>Any CPU</code>！！！</p>
+<figure data-type="image" tabindex="13"><img src="https://oss.lucoder.com/uploads/2019/07/29/20190729100456.png" alt="20190729100456"></figure>
+<h2 id="实验环节">实验环节</h2>
+<p>实验环节很简单，如果你是用的我的程序可以直接运行查看效果，这是一个矩阵的加法。</p>
+<figure data-type="image" tabindex="14"><img src="https://oss.lucoder.com/uploads/2019/07/29/20190729100704.png" alt="20190729100704"></figure>
+<h2 id="结论与总结">结论与总结</h2>
+<p>到上面的实验环节基本程序部分已经结束，但是你可能会发现使用GPU计算这些数据的速度并没有CPU的快速，原因在哪呢？归结一下两个原因<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mrow></mrow><mrow><mo>[</mo><mn>2</mn><mo>]</mo></mrow></msup></mrow><annotation encoding="application/x-tex">^{[2]}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8879999999999999em;vertical-align:0em;"></span><span class="mord"><span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">[</span><span class="mord mtight">2</span><span class="mclose mtight">]</span></span></span></span></span></span></span></span></span></span></span></span>：</p>
+<ol>
+<li>
+<p>计算量太小，不够复杂。GPU的优势是核心较多，每一个核心的计算时间越长，整体的时间差异就会越明显，比如每一个核心计算数耗时是1ms，有1000个计算大概需要耗时1s左右，但是对于GPU(1060)超过1000个CUDA核心时，将在1ms内计算完毕，CPU的理论时间消耗是GPU的1000倍左右。</p>
+</li>
+<li>
+<p>GPU设备初始化。初始化时间主要来自几个部分：设备初始化、数据拷贝，其中数据初始化耗时是不可控的，属于硬件底层，数据拷贝是指从CPU拷贝数据到GPU计算数据，然后GPU将数据重新拷贝到CPU的过程，这个过程耗时可控也是主导部分。</p>
+</li>
+</ol>
+<h2 id="参考文献">参考文献</h2>
+<p>[1] <a href="https://blog.csdn.net/yu132563/article/details/52658043">C与CUDA混合编程的配置问题</a></p>
+<p>[2] <a href="https://bbs.csdn.net/topics/391014164">新手问下关于CUDA效率的问题</a></p>
+<h2 id="附录">附录</h2>
+<p>源码：<a href="https://www.lanzous.com/i57l7yj">蓝奏云</a>，<a href="https://download.csdn.net/download/qq_20535961/11444515">CSDN</a></p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://corsip.github.io/post/egY_ZZMqj">
+                  <h3 class="post-title">
+                    联想拯救者电脑装Ubuntu没有WIFI
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>XmlConfig | 牧轩日志录</title>
+<title>联想拯救者电脑装Ubuntu没有WIFI | 牧轩日志录</title>
 <meta name="description" content="&lt;p align=&#34;center&#34;&gt;
 Computational Optical and Remote Sensing Image Processing&lt;br /&gt;
 光学计算与遥感处理
@@ -113,34 +113,54 @@ Computational Optical and Remote Sensing Image Processing<br />
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="current-tag">标签: XmlConfig</h2>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://corsip.github.io/post/newlifex_xmlconfig">
-                  <h2 class="post-title">Newlifex修仙（一） 超级配置文件</h2>
-                </a>
-                <div class="post-date">
-                  2019-09-27
-                </div>
-                <div class="post-abstract">
-                  <p>新生命团队基础框架X组件，包括日志、数据库、网络、RPC、序列化、缓存、Windows服务、多线程等模块，支持.Net Framework/.netstandard/Mono。</p>
-
-                </div>
+          <div class="post-detail">
+            <h2 class="post-title">联想拯救者电脑装Ubuntu没有WIFI</h2>
+            <div class="post-date">2018-07-26</div>
+            
+              <div class="feature-container" style="background-image: url('https://oss.lucoder.com/uploads/2018/07/26/20180726190211.jpg')">
               </div>
-              
-                <a class="right" href="https://corsip.github.io/post/newlifex_xmlconfig">
-                  <div class="feature-container" style="background-image: url('https://www.newlifex.com/logo.png')">
-                  </div>
-                </a>
-              
-            </article>
-          
+            
+            <div class="post-content">
+              <blockquote>
+<p>最近给联想电脑装Ubuntu系统，但是装完之后总是无法启动WIFI，而宽带上网却可以，给出一个解决办法，但是该办法应该只适合联想电脑，其他电脑请自测！</p>
+</blockquote>
+<!-- more-->
+<figure data-type="image" tabindex="1"><img src="https://oss.lucoder.com/uploads/2018/07/26/20180726190211.jpg" alt="https://oss.lucoder.com/uploads/2018/07/26/20180726190211.jpg"></figure>
+<p>打开终端，输入下面指令：</p>
+<pre><code class="language-shell">sudo modprobe -r ideapad_laptop
+</code></pre>
+<p>一般的如果该方法有效，那么命令执行成功左上角就可以使用WiFi了。</p>
+<h1 id="配置文件">配置文件</h1>
+<p>打开文件：</p>
+<pre><code>sudo gedit /etc/modprobe.d/wifiblacklist.conf
+</code></pre>
+<p>Linux系统特性，<code>一切皆配置</code>，打开文件后在第一行输入</p>
+<pre><code class="language-shell">blacklist ideapad_laptop
+</code></pre>
+<p>保存并关闭后再执行</p>
+<pre><code class="language-shell">#sudo modprobe -r ideapad_laptop
+</code></pre>
+<p>或者重启电脑</p>
+<blockquote>
+<p>TIPS: 新问题，检查是否使用键盘关闭了WIFI功能</p>
+</blockquote>
 
-          <div class="pagination-container">
-  
-  
-</div>
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://corsip.github.io/post/CBl_WG5K_">
+                  <h3 class="post-title">
+                    JetsonTx2刷机
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
 
         </div>
       </div>
