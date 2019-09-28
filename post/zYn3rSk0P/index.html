@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>高斯混合背景模型运动目标检测 | 牧轩日志录</title>
+<meta name="description" content="&lt;p align=&#34;center&#34;&gt;
+Computational Optical and Remote Sensing Image Processing&lt;br /&gt;
+光学计算与遥感处理
+&lt;/p&gt;">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://corsip.github.io/favicon.ico?v=1569660881545">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://corsip.github.io/styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://corsip.github.io">
+        <img src="https://corsip.github.io/images/avatar.png?v=1569660881545" class="site-logo">
+        <h1 class="site-title">牧轩日志录</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="https://corsip.github.io/post/tools/" class="site-nav" target="_blank">
+            工具
+          </a>
+        
+      
+        
+          <a href="https://corsip.github.io/post/links/" class="site-nav">
+            链接
+          </a>
+        
+      
+        
+          <a href="https://corsip.github.io/post/about/" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/corsip" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      <p align="center">
+Computational Optical and Remote Sensing Image Processing<br />
+光学计算与遥感处理
+</p>
+    </div>
+    <div class="site-footer">
+      <a href="/">牧轩居士</a> | <a href="https://pan.lucoder.com" target="_blank">网盘</a> | <a href="https://mirrors.lucoder.com" target="_blank">镜像</a> | <a href="https://oss.lucoder.com/" target="_blank">图床</a> | <a href="https://gridea.dev/" target="_blank">Gridea</a> | <a class="rss" href="https://corsip.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">高斯混合背景模型运动目标检测</h2>
+            <div class="post-date">2019-04-22</div>
+            
+              <div class="feature-container" style="background-image: url('https://oss.lucoder.com/md/2019/04/22/20190422131339914.jpg')">
+              </div>
+            
+            <div class="post-content">
+              <p>在运动目标的前景检测中，GMM的目标是实现对视频帧中的像素进行前景/背景的二分类。通过统计视频图像中各个点的像素值获取背景模型，最后利用背景减除的思想提取出运动目标。</p>
+<h1 id="步骤">步骤</h1>
+<p>GMM假设在摄像机固定的场景下，在一段足够长的时间区间内，背景目标出现的概率要远高于前景目标。利用监控视频的这一特点，对视频帧上的任意坐标的像素值进行时间方向的统计，为每个坐标分配若干个高斯概率密度函数作为该位置的像素值概率分布模型。</p>
+<figure data-type="image" tabindex="1"><img src="https://oss.lucoder.com/md/2019/04/22/20190422131339914.jpg" alt="20190422131339914"></figure>
+<p>以图 中用红色标记的点p(x, y)为例，对该点在时间轴上进行像素值的统计，用K个高斯分布描述该位置上的像素值分布Mp。</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>M</mi><mi>p</mi></msub><mo>=</mo><mrow><msub><mi>G</mi><mn>1</mn></msub><mo>(</mo><msub><mi>μ</mi><mn>1</mn></msub><mo separator="true">,</mo><msubsup><mi>δ</mi><mn>1</mn><mn>2</mn></msubsup><mo separator="true">,</mo><msub><mi>ω</mi><mn>1</mn></msub><mo>)</mo><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo separator="true">,</mo><msub><mi>G</mi><mi>i</mi></msub><mo>(</mo><msub><mi>μ</mi><mi>i</mi></msub><mo separator="true">,</mo><msubsup><mi>δ</mi><mi>i</mi><mn>2</mn></msubsup><mo separator="true">,</mo><msub><mi>ω</mi><mi>i</mi></msub><mo>)</mo><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo separator="true">,</mo><msub><mi>G</mi><mi>k</mi></msub><mo>(</mo><msub><mi>μ</mi><mi>k</mi></msub><mo separator="true">,</mo><msubsup><mi>δ</mi><mi>k</mi><mn>2</mn></msubsup><mo separator="true">,</mo><msub><mi>ω</mi><mi>k</mi></msub><mo>)</mo></mrow></mrow><annotation encoding="application/x-tex">M_p={G_1(\mu_1,\delta^2_1,\omega_1),...,G_i(\mu_i,\delta^2_i,\omega_i),...,G_k(\mu_k,\delta^2_k,\omega_k)}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.15139200000000003em;"><span style="top:-2.5500000000000003em;margin-left:-0.10903em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">p</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.1141079999999999em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault">G</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03785em;">δ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-2.4530000000000003em;margin-left:-0.03785em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">ω</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">G</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03785em;">δ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-2.4530000000000003em;margin-left:-0.03785em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">ω</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">G</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03785em;">δ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-2.4530000000000003em;margin-left:-0.03785em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">ω</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span></span></p>
+<p>混合高斯模型使用K（基本为3到5个）模型来表征图像中各个像素点的特征,在新一帧图像获得后更新混合高斯模型,用当前图像中的每个像素点与混合高斯模型匹配,如果成功则判定该点为背景点, 否则为前景点。通观整个高斯模型，他主要是由方差和均值两个参数决定，,对均值和方差的学习,采取不同的学习机制,将直接影响到模型的稳定性、精确性和收敛性。<br>
+建模过程中，我们需要对混合高斯模型中的方差、均值、权值等一些参数初始化，并通过这些参数求出建模所需的数据，如马兹距离。在初始化过程中，一般我们将方差设置的尽量大些（如15），而权值则尽量小些（如0.001）。 这样设置是由于初始化的高斯模型是一个并不准确，可能的模型，我们需要不停的缩小他的范围，更新他的参数值，从而得到最可能的高斯模型，将方差设置大些，就是为了将尽可能多的像素包含到一个模型里面，从而获得最有可能的模型。<br>
+对于Mp中的K个高斯概率密度函数来说，其中不仅包含着背景像素值的分布，也包含对前景像素值的分布情况。对K个高斯分布以权重的大小进行降序排序并筛选出前B个高斯分布作为点p的背景像素值的分布模型Mbk：</p>
+<figure data-type="image" tabindex="2"><img src="https://oss.lucoder.com/md/2019/04/22/2019042213362737.png" alt="2019042213362737"></figure>
+<h1 id="步骤-2">步骤</h1>
+<p>对于点p(x, y)，其像素值记为vp，当前的像素值分布模型以及背景模型分别为Mp，Mbk。GMM的模型更新步骤如下：</p>
+<p><em><strong>Step1</strong></em>：计算vp与Mp中任意高斯分布Gi的均值μi的距离，记作di。若di≤Td则转入Step2，否则转入Step3；</p>
+<p><em><strong>Step2</strong></em>：判定像素值vp与高斯分布Gi匹配成功，提升Gi的权值并转入Step4；</p>
+<p><em><strong>Step3</strong></em>：判定像素值vp与高斯分布Gi匹配失败，降低Gi的权值并返回Step1直到所有分布都完成了与vp的匹配转入Step5；</p>
+<p><em><strong>Step4</strong></em>：更新Gi的均值和方差并将Mp中的分布按权重降序排序；</p>
+<p><em><strong>Step5</strong></em>：统计Mp中K个高斯分布的权重之和并归一化所有权值；</p>
+<p><em><strong>Step6</strong></em>：若此时vp的匹配成功数为0，则新增一个高斯分布Gnew，替换掉Mp中权值最小的分布并重新降序排列；</p>
+<p><em><strong>Step7</strong></em>：选出前B个高斯分布作为像素p下一帧的背景模型Mbk。</p>
+<p>由上述步骤可以发现，随着时间的流动，在点p处出现频率较高的高斯分布的权值会逐渐提升；反之，权值会相应的降低，最后被新的分布替代。而利用每一帧点p处的像素值不断地对该点的B个背景分布函数进行动态更新，最终得到随场景光照变化而变化的背景模型。</p>
+<h1 id="缺点">缺点</h1>
+<p>GMM算法的缺点来自于其“背景的出现概率远高于前景”，因此当场景发生显著变化（如光照突变、相机抖动），算法将产生大量的前景误检。当GMM的模型学习速率α无法适应运动目标的速度时，参考背景图像中有可能出现目标的鬼影，因此学习速率α的选取及自适应是GMM算法的一个研究难点。再加上是以像素为单位进行处理，所以会出现些许噪声，当部分车体的颜色与背景接近时（如车窗），前景掩膜对应的区域会出现“空洞”。</p>
+<h1 id="实现">实现</h1>
+<pre><code class="language-cpp">#ifndef DBM_3rdInclude_H
+#define DBM_3rdInclude_H
+#include &lt;iostream&gt;
+#include &lt;map&gt;
+#include &lt;vector&gt;
+#endif //DBM_OPENCVINCLUDE_H
+
+
+#ifndef DBM_OPENCVINCLUDE_H
+#define DBM_OPENCVINCLUDE_H
+#include &lt;opencv2/core/core.hpp&gt;
+#include &lt;opencv2/core/core_c.h&gt;
+#include &lt;opencv2/features2d/features2d.hpp&gt;
+#include &lt;opencv2/highgui/highgui.hpp&gt;
+#include &lt;opencv2/highgui/highgui_c.h&gt;
+#include &lt;opencv2/imgproc/imgproc.hpp&gt;
+#include &lt;opencv2/imgproc/imgproc_c.h&gt;
+#include &lt;opencv2/calib3d/calib3d.hpp&gt;
+#include &lt;opencv2/video/background_segm.hpp&gt;
+#endif //DBM_OPENCVINCLUDE_H
+
+using namespace std;
+using namespace cv;
+#ifndef DBM_GAUSSIANMUTEXTURE_H
+#define DBM_GAUSSIANMUTEXTURE_H
+class GaussianMutexture {
+private:
+    vector&lt;Mat&gt; _sort;
+public:
+    void load(vector&lt;Mat&gt; files);
+    vector&lt;Mat&gt; run(int count = 5, Size siz = Size(3, 3), int startFrame = 0,
+                    int stopFrame = -1, int sharp = MORPH_RECT, int morph = MORPH_OPEN);
+};
+#endif //DBM_GAUSSIANMUTEXTURE_H
+
+#include &quot;gaussianMutexture.h&quot;
+void GaussianMutexture::load(vector&lt;Mat&gt; files) {this-&gt;_sort = files;}
+vector&lt;Mat&gt; GaussianMutexture::run(int count, Size siz, int startFrame,
+                                   int stopFrame, int sharp, int morph) {
+    int pointer = 0;
+    map&lt;int, Mat&gt; backgrounds;
+
+    if (stopFrame == -1)
+        stopFrame = this-&gt;_sort.size();
+
+#pragma  omp parallel for
+    for (int i = startFrame; i &lt; stopFrame; ++i) {
+        vector&lt;Mat&gt; readed;
+        readed.clear();
+        for (int j = 0; j &lt; count; ++j) {
+            readed.push_back(this-&gt;_sort[i + j]);
+        }
+
+        Mat frame, bgMask_MOG2, bgMask_KNN, background;
+        Mat kernel = getStructuringElement(sharp, siz);
+
+        Ptr&lt;BackgroundSubtractor&gt; ptrMOG2 = createBackgroundSubtractorMOG2();
+        Ptr&lt;BackgroundSubtractor&gt; ptrKNN = createBackgroundSubtractorKNN();
+
+        for (int k = 0; k &lt; readed.size(); k++) {
+            ptrMOG2-&gt;apply(readed[k], bgMask_MOG2);
+            morphologyEx(bgMask_MOG2, bgMask_MOG2, morph, kernel);
+            ptrKNN-&gt;apply(readed[k], bgMask_KNN);
+            ptrKNN-&gt;getBackgroundImage(background);
+        }
+        backgrounds.insert(pair&lt;int, Mat&gt;(i, background));
+#ifdef DEBUG
+        cout &lt;&lt; &quot;.&quot;;
+#endif
+    }
+    vector&lt;Mat&gt; backgroundFrame;
+    for (map&lt;int, Mat&gt;::iterator it = backgrounds.begin(); it != backgrounds.end(); it++)
+        backgroundFrame.push_back(it-&gt;second);
+    return backgroundFrame;
+}
+
+</code></pre>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://corsip.github.io/post/dx8dpHIfN">
+                  <h3 class="post-title">
+                    Jetson TX2 不同的工作模式
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

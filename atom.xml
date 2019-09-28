@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://corsip.github.io</id>
     <title>牧轩日志录</title>
-    <updated>2019-09-28T08:41:33.416Z</updated>
+    <updated>2019-09-28T08:54:43.833Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://corsip.github.io"/>
     <link rel="self" href="https://corsip.github.io/atom.xml"/>
@@ -14,17 +14,6 @@ Computational Optical and Remote Sensing Image Processing&lt;br /&gt;
     <icon>https://corsip.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, 牧轩日志录</rights>
     <entry>
-        <title type="html"><![CDATA[Java中的SSM框架配置]]></title>
-        <id>https://corsip.github.io/post/BL8IfLp3F</id>
-        <link href="https://corsip.github.io/post/BL8IfLp3F">
-        </link>
-        <updated>2019-09-28T08:38:16.000Z</updated>
-        <summary type="html"><![CDATA[<p>SSM框架是JavaWeb中常用的框架，包括<code>Spring</code>、<code>Spring MVC</code>、<code>Mybatis</code>三种框架的一个整合。其中任意两个框架都可以相互组合<code>SS框架</code>、<code>SM</code>（O(∩_∩)O~）框架（两种情况：<code>Spring + Mybatis</code>、<code>Spring MVC + Mybatis</code>）。具体的详细情况可以参考这篇文章<a href='http://blog.csdn.net/daniel_fei/article/details/56670751' target='_blank'>http://blog.csdn.net/daniel_fei/article/details/56670751</a>。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>SSM框架是JavaWeb中常用的框架，包括<code>Spring</code>、<code>Spring MVC</code>、<code>Mybatis</code>三种框架的一个整合。其中任意两个框架都可以相互组合<code>SS框架</code>、<code>SM</code>（O(∩_∩)O~）框架（两种情况：<code>Spring + Mybatis</code>、<code>Spring MVC + Mybatis</code>）。具体的详细情况可以参考这篇文章<a href='http://blog.csdn.net/daniel_fei/article/details/56670751' target='_blank'>http://blog.csdn.net/daniel_fei/article/details/56670751</a>。</p>
-]]></content>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[OpenCV类型对照表]]></title>
         <id>https://corsip.github.io/post/umiznB83M</id>
         <link href="https://corsip.github.io/post/umiznB83M">
@@ -33,17 +22,6 @@ Computational Optical and Remote Sensing Image Processing&lt;br /&gt;
         <summary type="html"><![CDATA[<p>有些时候处理图像必须使用灰度图或者单波段处理，速度快，所以在处理之前就需要先判断图像类型，根据不同类型图像使用不同方法处理。</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>有些时候处理图像必须使用灰度图或者单波段处理，速度快，所以在处理之前就需要先判断图像类型，根据不同类型图像使用不同方法处理。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[CMake版本升级]]></title>
-        <id>https://corsip.github.io/post/XWuCpU95o</id>
-        <link href="https://corsip.github.io/post/XWuCpU95o">
-        </link>
-        <updated>2019-09-28T08:26:11.000Z</updated>
-        <summary type="html"><![CDATA[<p>CMake 是一个可扩展的开源系统，以独立于编译器的方式在操作系统中管理生成过程。与许多跨平台系统不同，CMake 旨在与本机生成环境结合使用。放置在每个源目录中的简单配置文件（称为 CMakeLists.txt 文件）用于生成标准生成文件（例如，在 Unix 上生成文件，在 Windows MSVC 中生成项目/工作区），这些文件以通常的方式使用。CMake 可以生成本机生成环境，该环境将编译源代码、创建库、生成包装和任意组合生成可执行文件。CMake 支持就地和出位生成，因此可以支持来自单个源树的多个生成。CMake 还支持静态和动态库生成。CMake 的另一个不错的功能是，它生成一个缓存文件，该文件旨在与图形编辑器一起使用。例如，当 CMake 运行时，它会查找文件、库和可执行文件，并且可能会遇到可选的生成指令。此信息将收集到缓存中，用户可能会在生成本机生成文件之前更改这些信息。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>CMake 是一个可扩展的开源系统，以独立于编译器的方式在操作系统中管理生成过程。与许多跨平台系统不同，CMake 旨在与本机生成环境结合使用。放置在每个源目录中的简单配置文件（称为 CMakeLists.txt 文件）用于生成标准生成文件（例如，在 Unix 上生成文件，在 Windows MSVC 中生成项目/工作区），这些文件以通常的方式使用。CMake 可以生成本机生成环境，该环境将编译源代码、创建库、生成包装和任意组合生成可执行文件。CMake 支持就地和出位生成，因此可以支持来自单个源树的多个生成。CMake 还支持静态和动态库生成。CMake 的另一个不错的功能是，它生成一个缓存文件，该文件旨在与图形编辑器一起使用。例如，当 CMake 运行时，它会查找文件、库和可执行文件，并且可能会遇到可选的生成指令。此信息将收集到缓存中，用户可能会在生成本机生成文件之前更改这些信息。</p>
 ]]></content>
     </entry>
     <entry>
@@ -63,6 +41,17 @@ Computational Optical and Remote Sensing Image Processing&lt;br /&gt;
         <link href="https://corsip.github.io/post/C76sG8kdU">
         </link>
         <updated>2019-09-20T12:28:08.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[CMake版本升级]]></title>
+        <id>https://corsip.github.io/post/XWuCpU95o</id>
+        <link href="https://corsip.github.io/post/XWuCpU95o">
+        </link>
+        <updated>2019-09-12T08:26:11.000Z</updated>
+        <summary type="html"><![CDATA[<p>CMake 是一个可扩展的开源系统，以独立于编译器的方式在操作系统中管理生成过程。与许多跨平台系统不同，CMake 旨在与本机生成环境结合使用。放置在每个源目录中的简单配置文件（称为 CMakeLists.txt 文件）用于生成标准生成文件（例如，在 Unix 上生成文件，在 Windows MSVC 中生成项目/工作区），这些文件以通常的方式使用。CMake 可以生成本机生成环境，该环境将编译源代码、创建库、生成包装和任意组合生成可执行文件。CMake 支持就地和出位生成，因此可以支持来自单个源树的多个生成。CMake 还支持静态和动态库生成。CMake 的另一个不错的功能是，它生成一个缓存文件，该文件旨在与图形编辑器一起使用。例如，当 CMake 运行时，它会查找文件、库和可执行文件，并且可能会遇到可选的生成指令。此信息将收集到缓存中，用户可能会在生成本机生成文件之前更改这些信息。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>CMake 是一个可扩展的开源系统，以独立于编译器的方式在操作系统中管理生成过程。与许多跨平台系统不同，CMake 旨在与本机生成环境结合使用。放置在每个源目录中的简单配置文件（称为 CMakeLists.txt 文件）用于生成标准生成文件（例如，在 Unix 上生成文件，在 Windows MSVC 中生成项目/工作区），这些文件以通常的方式使用。CMake 可以生成本机生成环境，该环境将编译源代码、创建库、生成包装和任意组合生成可执行文件。CMake 支持就地和出位生成，因此可以支持来自单个源树的多个生成。CMake 还支持静态和动态库生成。CMake 的另一个不错的功能是，它生成一个缓存文件，该文件旨在与图形编辑器一起使用。例如，当 CMake 运行时，它会查找文件、库和可执行文件，并且可能会遇到可选的生成指令。此信息将收集到缓存中，用户可能会在生成本机生成文件之前更改这些信息。</p>
+]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[Windows系列产品大客户版批量激活]]></title>
@@ -119,6 +108,23 @@ Computational Optical and Remote Sensing Image Processing&lt;br /&gt;
         <summary type="html"><![CDATA[<p>生产者-消费者模式是一个十分经典的多线程并发协作的模式，弄懂生产者-消费者问题能够让我们对并发编程的理解加深。所谓生产者-消费者问题，实际上主要是包含了两类线程，一种是生产者线程用于生产数据，另一种是消费者线程用于消费数据，为了解耦生产者和消费者的关系，通常会采用共享的数据区域，就像是一个仓库，生产者生产数据之后直接放置在共享数据区中，并不需要关心消费者的行为；而消费者只需要从共享数据区中去获取数据，就不再需要关心生产者的行为。但是，这个共享数据区域中应该具备这样的线程间并发协作的功能：</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>生产者-消费者模式是一个十分经典的多线程并发协作的模式，弄懂生产者-消费者问题能够让我们对并发编程的理解加深。所谓生产者-消费者问题，实际上主要是包含了两类线程，一种是生产者线程用于生产数据，另一种是消费者线程用于消费数据，为了解耦生产者和消费者的关系，通常会采用共享的数据区域，就像是一个仓库，生产者生产数据之后直接放置在共享数据区中，并不需要关心消费者的行为；而消费者只需要从共享数据区中去获取数据，就不再需要关心生产者的行为。但是，这个共享数据区域中应该具备这样的线程间并发协作的功能：</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[免VPN下载知网、万方、维普论文]]></title>
+        <id>https://corsip.github.io/post/FytvdkoVq</id>
+        <link href="https://corsip.github.io/post/FytvdkoVq">
+        </link>
+        <updated>2019-05-26T08:52:59.000Z</updated>
+        <summary type="html"><![CDATA[<ol>
+<li>支付宝内搜索并关注“浙江图书馆”的生活号，点击“服务”-》“服务大厅”-》“办理读者证（免费的，自定义读者证的密码）”，办理完读者证后可以去支付宝卡包查看读者证的卡号。</li>
+<li>打开浙江图书馆的官网链接（浙江图书馆）用读者证的卡号和密码登录浙江图书馆，在右下角会有数据库推荐版块，里面有知网（CNKI）、维普、万方等数据库都可以免费访问和下载资源了~</li>
+</ol>
+]]></summary>
+        <content type="html"><![CDATA[<ol>
+<li>支付宝内搜索并关注“浙江图书馆”的生活号，点击“服务”-》“服务大厅”-》“办理读者证（免费的，自定义读者证的密码）”，办理完读者证后可以去支付宝卡包查看读者证的卡号。</li>
+<li>打开浙江图书馆的官网链接（浙江图书馆）用读者证的卡号和密码登录浙江图书馆，在右下角会有数据库推荐版块，里面有知网（CNKI）、维普、万方等数据库都可以免费访问和下载资源了~</li>
+</ol>
 ]]></content>
     </entry>
 </feed>
