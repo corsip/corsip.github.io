@@ -1,128 +1,170 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
- <head>
-    <meta charset="utf-8" />
-  <title>CUDA | 牧轩日志录</title>
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
-  <link rel="stylesheet" href="https://www.lucoder.com/styles/main.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-   <script src="https://cdn.staticfile.org/highlight.js/9.15.9/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
- </head>
- <body>
-     <div class="sidebar animated fadeInDown">
-   <div class="logo-title">
-    <div class="title">
-     <img src="https://www.lucoder.com/images/avatar.png?v=1569718407158" style="width:127px;" />
+<html>
+  <head>
+    <meta charset="utf-8" >
 
-     <div class="description">
-      <p><p align="center">
+<title>CUDA | 牧轩日志录</title>
+<meta name="description" content="&lt;p align=&#34;center&#34;&gt;
+Computational Optical and Remote Sensing Image Processing&lt;br /&gt;
+光学计算与遥感处理
+&lt;/p&gt;">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://www.lucoder.com/favicon.ico?v=1569718591972">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://www.lucoder.com/styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://www.lucoder.com">
+        <img src="https://www.lucoder.com/images/avatar.png?v=1569718591972" class="site-logo">
+        <h1 class="site-title">牧轩日志录</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="https://www.lucoder.com/post/tools/" class="site-nav" target="_blank">
+            工具
+          </a>
+        
+      
+        
+          <a href="https://www.lucoder.com/post/links/" class="site-nav">
+            链接
+          </a>
+        
+      
+        
+          <a href="https://www.lucoder.com/post/about/" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/corsip" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      <p align="center">
 Computational Optical and Remote Sensing Image Processing<br />
 光学计算与遥感处理
-</p></p>
-     </div>
-    </div>
-   </div>
-   <ul class="social-links">
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-   </ul>
-   <div class="footer">
-    <div class="by_farbox">
-   <a href="/">牧轩居士</a> | <a href="https://pan.lucoder.com" target="_blank">网盘</a> | <a href="https://mirrors.lucoder.com" target="_blank">镜像</a> | <a href="https://oss.lucoder.com/" target="_blank">图床</a> | <a href="https://gridea.dev/" target="_blank">Gridea</a>
-    </div>
-    
-
-    </div>
-   </div>
-  </div>
-  <div class="main">
-      <div class="page-top animated fadeInDown">
-    <div class="nav">
-
-     <li><a  href="/">首页</a></li>
-
-     <li><a  href="/archives">归档</a></li>
-
-     <li><a  href="/tags">标签</a></li>
-
-     <li><a  href="https://www.lucoder.com/post/tools/">工具</a></li>
-
-     <li><a  href="https://www.lucoder.com/post/links/">链接</a></li>
-
-     <li><a  href="https://www.lucoder.com/post/about/">关于</a></li>
-
-
-    </div>
-    <div class="information">
-     <div class="back_btn">
-      <li><a class="fa fa-chevron-left" onclick="window.history.go(-1)" style="display:none;"> </a></li>
-     </div>
-    </div>
-   </div>
-   <div class="autopagerize_page_element">
-    <div class="content">
-              
-     <div class="post animated fadeInDown">
-      <div class="post-title">
-       <h3><a href="https://www.lucoder.com/post/OAWZv9E8S">C#使用CUDA</a></h3>
-      </div>
-      <div class="post-content">
-       <p><p>随着信息处理的爆炸增长，传统使用CPU计算已经无法满足计算作业增长的需求，GPU的出现为批量作业提供了新的契机。GPU计算拥有很类库，比如CUDA、OpenCL等，但是可以发现CUDA是其中相对比较成熟的一个，也是目前应用最为广发的一种。于此同时开发语言的飞速发展，呈现百花齐放状态，C#语言简单高效，所以本文讲述如何使用C#调用CUDA进行GPU计算。</p>
 </p>
-      </div>
-      <div class="post-footer">
-       <div class="meta">
-        <div class="info">
-         <i class="fa fa-sun-o"></i>
-         <span class="date">2019-07-29</span>
-         <i class="fa fa-tag"></i>
-         
-         <a class="tag" href="https://www.lucoder.com/tag/cuda" title="CUDA">CUDA </a>
-         
-         <a class="tag" href="https://www.lucoder.com/tag/HPC" title="高性能计算">高性能计算 </a>
-         
-         <a class="tag" href="https://www.lucoder.com/tag/.NET" title=".NET">.NET </a>
-         
-        </div>
-       </div>
-      </div>
-     </div>
-     
-     <div class="pagination">
-      <ul class="clearfix">
-            
-        
-
-      </ul>
-     </div>
     </div>
-   </div>
+    <div class="site-footer">
+      <a href="/">牧轩居士</a> | <a href="https://pan.lucoder.com" target="_blank">网盘</a> | <a href="https://mirrors.lucoder.com" target="_blank">镜像</a> | <a href="https://oss.lucoder.com/" target="_blank">图床</a> | <a href="https://gridea.dev/" target="_blank">Gridea</a> | <a class="rss" href="https://www.lucoder.com/atom.xml" target="_blank">RSS</a>
+    </div>
   </div>
-  <script src="https://www.lucoder.com/media/scripts/jquery.js"></script>
-  <script src="https://www.lucoder.com/media/scripts/jquery-migrate-1.2.1.min.js"></script>
-  <script src="https://www.lucoder.com/media/scripts/jquery.appear.js"></script>
+</div>
 
 
- </body>
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <h2 class="current-tag">标签: CUDA</h2>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://www.lucoder.com/post/OAWZv9E8S">
+                  <h2 class="post-title">C#使用CUDA</h2>
+                </a>
+                <div class="post-date">
+                  2019-07-29
+                </div>
+                <div class="post-abstract">
+                  <p>随着信息处理的爆炸增长，传统使用CPU计算已经无法满足计算作业增长的需求，GPU的出现为批量作业提供了新的契机。GPU计算拥有很类库，比如CUDA、OpenCL等，但是可以发现CUDA是其中相对比较成熟的一个，也是目前应用最为广发的一种。于此同时开发语言的飞速发展，呈现百花齐放状态，C#语言简单高效，所以本文讲述如何使用C#调用CUDA进行GPU计算。</p>
+
+                </div>
+              </div>
+              
+                <a class="right" href="https://www.lucoder.com/post/OAWZv9E8S">
+                  <div class="feature-container" style="background-image: url('https://oss.lucoder.com/uploads/2019/07/29/20190729100704.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+
+          <div class="pagination-container">
+  
+  
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
 </html>

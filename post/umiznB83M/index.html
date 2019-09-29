@@ -1,93 +1,124 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
- <head>
-     <meta charset="utf-8" />
-  <title>OpenCV类型对照表 | 牧轩日志录</title>
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
-  <link rel="stylesheet" href="https://www.lucoder.com/styles/main.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-   <script src="https://cdn.staticfile.org/highlight.js/9.15.9/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
- </head>
- <body>
-     <div class="sidebar animated fadeInDown">
-   <div class="logo-title">
-    <div class="title">
-     <img src="https://www.lucoder.com/images/avatar.png?v=1569718407158" style="width:127px;" />
+<html>
+  <head>
+    <meta charset="utf-8" >
 
-     <div class="description">
-      <p><p align="center">
+<title>OpenCV类型对照表 | 牧轩日志录</title>
+<meta name="description" content="&lt;p align=&#34;center&#34;&gt;
+Computational Optical and Remote Sensing Image Processing&lt;br /&gt;
+光学计算与遥感处理
+&lt;/p&gt;">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://www.lucoder.com/favicon.ico?v=1569718591972">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://www.lucoder.com/styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://www.lucoder.com">
+        <img src="https://www.lucoder.com/images/avatar.png?v=1569718591972" class="site-logo">
+        <h1 class="site-title">牧轩日志录</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="https://www.lucoder.com/post/tools/" class="site-nav" target="_blank">
+            工具
+          </a>
+        
+      
+        
+          <a href="https://www.lucoder.com/post/links/" class="site-nav">
+            链接
+          </a>
+        
+      
+        
+          <a href="https://www.lucoder.com/post/about/" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/corsip" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      <p align="center">
 Computational Optical and Remote Sensing Image Processing<br />
 光学计算与遥感处理
-</p></p>
-     </div>
+</p>
     </div>
-   </div>
-   <ul class="social-links">
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-   </ul>
-   <div class="footer">
-    <div class="by_farbox">
-   <a href="/">牧轩居士</a> | <a href="https://pan.lucoder.com" target="_blank">网盘</a> | <a href="https://mirrors.lucoder.com" target="_blank">镜像</a> | <a href="https://oss.lucoder.com/" target="_blank">图床</a> | <a href="https://gridea.dev/" target="_blank">Gridea</a>
+    <div class="site-footer">
+      <a href="/">牧轩居士</a> | <a href="https://pan.lucoder.com" target="_blank">网盘</a> | <a href="https://mirrors.lucoder.com" target="_blank">镜像</a> | <a href="https://oss.lucoder.com/" target="_blank">图床</a> | <a href="https://gridea.dev/" target="_blank">Gridea</a> | <a class="rss" href="https://www.lucoder.com/atom.xml" target="_blank">RSS</a>
     </div>
-    
-
-    </div>
-   </div>
   </div>
-  <div class="main">
-     <div class="page-top animated fadeInDown">
-    <div class="nav">
-    
-     <li><a  href="/">首页</a></li>
+</div>
 
-     <li><a  href="/archives">归档</a></li>
 
-     <li><a  href="/tags">标签</a></li>
-
-     <li><a  href="https://www.lucoder.com/post/tools/">工具</a></li>
-
-     <li><a  href="https://www.lucoder.com/post/links/">链接</a></li>
-
-     <li><a  href="https://www.lucoder.com/post/about/">关于</a></li>
-
-    </div>
-    <div class="information">
-     <div class="back_btn">
-      <li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li>
-     </div>
-    </div>
-   </div>
-   <div class="autopagerize_page_element">
-    <div class="content">
-     <div class="post-page">
-      <div class="post animated fadeInDown">
-       <div class="post-title">
-        <h3><a>OpenCV类型对照表</a></h3>
-       </div>
-       <div class="post-content">
-        <p>有些时候处理图像必须使用灰度图或者单波段处理，速度快，所以在处理之前就需要先判断图像类型，根据不同类型图像使用不同方法处理。</p>
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">OpenCV类型对照表</h2>
+            <div class="post-date">2019-09-09</div>
+            
+            <div class="post-content">
+              <p>有些时候处理图像必须使用灰度图或者单波段处理，速度快，所以在处理之前就需要先判断图像类型，根据不同类型图像使用不同方法处理。</p>
 <!-- more -->
 <h1 id="获取type值">获取type值</h1>
 <pre><code class="language-cpp">Mat img = imread(&quot;lena.jpg&quot;,0);
@@ -157,50 +188,54 @@ cout&lt;&lt;img.type()&lt;&lt;endl;
 </tbody>
 </table>
 
-       </div>
-       <div class="post-footer">
-        <div class="meta">
-         <div class="info">
-          <i class="fa fa-sun-o"></i>
-          <span class="date">2019-09-09</span>
-          <i class="fa fa-tag"></i>
-          
-          <a class="tag" href="https://www.lucoder.com/tag/OpenCV" title="OpenCV">OpenCV </a>
-          
-         </div>
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://www.lucoder.com/tag/OpenCV" class="tag">
+                    OpenCV
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://www.lucoder.com/post/Hm6MrGUmO">
+                  <h3 class="post-title">
+                    Windows系列产品大客户版批量激活
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
         </div>
-       </div>
       </div>
-      <div class="share">
-       <div class="evernote">
-        <a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a>
-       </div>
-       <div class="weibo">
-        <a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a>
-       </div>
-       <div class="twitter">
-        <a class="fa fa-twitter" href="http://twitter.com/home?status=,https://www.lucoder.com/post/umiznB83M,;"></a>
-       </div>
-      </div>
-      <div class="pagination">
-       <ul class="clearfix">
-
-        <li class="pre pagbuttons"><a class="btn" role="navigation" href="https://www.lucoder.com/post/XWuCpU95o" title="CMake版本升级">上一篇</a></li>
-         
-        
-        <li class="next pagbuttons"><a class="btn" role="navigation" href="https://www.lucoder.com/post/Hm6MrGUmO" title=" Windows系列产品大客户版批量激活">下一篇</a></li>
-        
-       </ul>
-      </div>
-        
-     </div>
     </div>
-   </div>
-  </div>
-  <script src="https://www.lucoder.com/media/scripts/jquery.js"></script>
-  <script src="https://www.lucoder.com/media/scripts/jquery-migrate-1.2.1.min.js"></script>
-  <script src="https://www.lucoder.com/media/scripts/jquery.appear.js"></script>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
 
 
- </body>
+
+
+  </body>
 </html>
