@@ -1,393 +1,368 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" >
+<html lang="zh-CN">
+ <head>
+   <meta charset="utf-8" />
+  <title>牧轩日志录</title>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+  <link rel="stylesheet" href="https://www.lucoder.com/styles/main.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+   <script src="https://cdn.staticfile.org/highlight.js/9.15.9/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+ </head>
+ <body>
+         <div class="sidebar animated fadeInDown">
+   <div class="logo-title">
+    <div class="title">
+     <img src="https://www.lucoder.com/images/avatar.png?v=1569718267427" style="width:127px;" />
 
-<title>文章归档 | 牧轩日志录</title>
-<meta name="description" content="&lt;p align=&#34;center&#34;&gt;
-Computational Optical and Remote Sensing Image Processing&lt;br /&gt;
-光学计算与遥感处理
-&lt;/p&gt;">
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://www.lucoder.com/favicon.ico?v=1569664055274">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-<link rel="stylesheet" href="https://www.lucoder.com/styles/main.css">
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
-
-
-  </head>
-  <body>
-    <div id="app" class="main">
-
-      <div class="sidebar" :class="{ 'full-height': menuVisible }">
-  <div class="top-container" data-aos="fade-right">
-    <div class="top-header-container">
-      <a class="site-title-container" href="https://www.lucoder.com">
-        <img src="https://www.lucoder.com/images/avatar.png?v=1569664055274" class="site-logo">
-        <h1 class="site-title">牧轩日志录</h1>
-      </a>
-      <div class="menu-btn" @click="menuVisible = !menuVisible">
-        <div class="line"></div>
-      </div>
-    </div>
-    <div>
-      
-        
-          <a href="/" class="site-nav">
-            首页
-          </a>
-        
-      
-        
-          <a href="/archives" class="site-nav">
-            归档
-          </a>
-        
-      
-        
-          <a href="/tags" class="site-nav">
-            标签
-          </a>
-        
-      
-        
-          <a href="https://www.lucoder.com/post/tools/" class="site-nav" target="_blank">
-            工具
-          </a>
-        
-      
-        
-          <a href="https://www.lucoder.com/post/links/" class="site-nav">
-            链接
-          </a>
-        
-      
-        
-          <a href="https://www.lucoder.com/post/link/" class="site-nav" target="_blank">
-            导航
-          </a>
-        
-      
-        
-          <a href="https://www.lucoder.com/post/about/" class="site-nav" target="_blank">
-            关于
-          </a>
-        
-      
-    </div>
-  </div>
-  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
-    <div class="social-container">
-      
-        
-          <a class="social-link" href="https://github.com/corsip" target="_blank">
-            <i class="fab fa-github"></i>
-          </a>
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    </div>
-    <div class="site-description">
-      <p align="center">
+     <div class="description">
+      <p><p align="center">
 Computational Optical and Remote Sensing Image Processing<br />
 光学计算与遥感处理
-</p>
+</p></p>
+     </div>
     </div>
-    <div class="site-footer">
-      <a href="/">牧轩居士</a> | <a href="https://pan.lucoder.com" target="_blank">网盘</a> | <a href="https://mirrors.lucoder.com" target="_blank">镜像</a> | <a href="https://oss.lucoder.com/" target="_blank">图床</a> | <a href="https://gridea.dev/" target="_blank">Gridea</a> | <a class="rss" href="https://www.lucoder.com/atom.xml" target="_blank">RSS</a>
+   </div>
+   <ul class="social-links">
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+   </ul>
+   <div class="footer">
+    <div class="by_farbox">
+   <a href="/">牧轩居士</a> | <a href="https://pan.lucoder.com" target="_blank">网盘</a> | <a href="https://mirrors.lucoder.com" target="_blank">镜像</a> | <a href="https://oss.lucoder.com/" target="_blank">图床</a> | <a href="https://gridea.dev/" target="_blank">Gridea</a>
     </div>
+    
+
+    </div>
+   </div>
   </div>
-</div>
+  <div class="main">
+          <div class="page-top animated fadeInDown">
+    <div class="nav">
+
+     <li><a  href="/">首页</a></li>
+
+     <li><a  href="/archives">归档</a></li>
+
+     <li><a  href="/tags">标签</a></li>
+
+     <li><a  href="https://www.lucoder.com/post/tools/">工具</a></li>
+
+     <li><a  href="https://www.lucoder.com/post/about/">关于</a></li>
 
 
-      <div class="main-container">
-        <div class="content-container" data-aos="fade-up">
-          
-
-          <h2 class="archives-title">文章归档</h2>
-          <div class="archives-container">
-            
-              <h2 class="year" data-aos="fade-in" data-aos-delay="500">2019</h2>
-              
-                
-                  <article class="post">
-                    <a href="https://www.lucoder.com/post/eJMrytUkr">
-                      <h2 class="post-title">
-                        GDAL波段分离
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://www.lucoder.com/post/newlifex_xmlconfig">
-                      <h2 class="post-title">
-                        Newlifex修仙（一） 超级配置文件
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://www.lucoder.com/post/C76sG8kdU">
-                      <h2 class="post-title">
-                        Windows 10 编译Mingw版本OpenCV
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://www.lucoder.com/post/XWuCpU95o">
-                      <h2 class="post-title">
-                        CMake版本升级
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://www.lucoder.com/post/umiznB83M">
-                      <h2 class="post-title">
-                        OpenCV类型对照表
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://www.lucoder.com/post/Hm6MrGUmO">
-                      <h2 class="post-title">
-                        Windows系列产品大客户版批量激活
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://www.lucoder.com/post/JViBv93-k">
-                      <h2 class="post-title">
-                        C++实现三维向量及其计算
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://www.lucoder.com/post/OAWZv9E8S">
-                      <h2 class="post-title">
-                        C#使用CUDA
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://www.lucoder.com/post/Xc_mGc7gi">
-                      <h2 class="post-title">
-                        C++ N叉树的实现
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://www.lucoder.com/post/6mprAxRaw">
-                      <h2 class="post-title">
-                        C++实现生产者消费者模型
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://www.lucoder.com/post/FytvdkoVq">
-                      <h2 class="post-title">
-                        免VPN下载知网、万方、维普论文
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://www.lucoder.com/post/wdCPCmcZk">
-                      <h2 class="post-title">
-                        C#使用MPI进行高性能计算
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://www.lucoder.com/post/zYn3rSk0P">
-                      <h2 class="post-title">
-                        高斯混合背景模型运动目标检测
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://www.lucoder.com/post/dx8dpHIfN">
-                      <h2 class="post-title">
-                        Jetson TX2 不同的工作模式
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-            
-              <h2 class="year" data-aos="fade-in" data-aos-delay="500">2018</h2>
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-                  <article class="post">
-                    <a href="https://www.lucoder.com/post/rRRoX7zPA">
-                      <h2 class="post-title">
-                        使用Github建立博客系统
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://www.lucoder.com/post/BL8IfLp3F">
-                      <h2 class="post-title">
-                        Java中的SSM框架配置
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://www.lucoder.com/post/egY_ZZMqj">
-                      <h2 class="post-title">
-                        联想拯救者电脑装Ubuntu没有WIFI
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://www.lucoder.com/post/oSDWdHMYK">
-                      <h2 class="post-title">
-                        Visual Studio Code 调试 SpringBoot
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://www.lucoder.com/post/CBl_WG5K_">
-                      <h2 class="post-title">
-                        JetsonTx2刷机
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-            
-          </div>
-
-          <div class="pagination-container">
-  
-  
-</div>
-
-        </div>
-      </div>
     </div>
+    <div class="information">
+     <div class="back_btn">
+      <li><a class="fa fa-chevron-left" onclick="window.history.go(-1)" style="display:none;"> </a></li>
+     </div>
+    </div>
+   </div>
+   <div class="autopagerize_page_element">
+    <div class="content">
+     <div class="archive animated fadeInDown">
+      <ul class="list-with-title">
+       <div class="archive">
+      
+      
+        <div class="listing-title">
+                2019
+        </div>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <ul class="listing">
 
-<script type="application/javascript">
+                
+                             
+         <div class="listing-item">
+          <div class="listing-post">
+           <a href="https://www.lucoder.com/post/eJMrytUkr" title="GDAL波段分离">GDAL波段分离</a>
+           <div class="post-time">
+            <span class="date">2019-09-28 </span>
+           </div>
+          </div>
+         </div>
+         
+         
+                             
+         <div class="listing-item">
+          <div class="listing-post">
+           <a href="https://www.lucoder.com/post/newlifex_xmlconfig" title="Newlifex修仙（一） 超级配置文件">Newlifex修仙（一） 超级配置文件</a>
+           <div class="post-time">
+            <span class="date">2019-09-27 </span>
+           </div>
+          </div>
+         </div>
+         
+         
+                             
+         <div class="listing-item">
+          <div class="listing-post">
+           <a href="https://www.lucoder.com/post/C76sG8kdU" title="Windows 10 编译Mingw版本OpenCV">Windows 10 编译Mingw版本OpenCV</a>
+           <div class="post-time">
+            <span class="date">2019-09-20 </span>
+           </div>
+          </div>
+         </div>
+         
+         
+                             
+         <div class="listing-item">
+          <div class="listing-post">
+           <a href="https://www.lucoder.com/post/XWuCpU95o" title="CMake版本升级">CMake版本升级</a>
+           <div class="post-time">
+            <span class="date">2019-09-12 </span>
+           </div>
+          </div>
+         </div>
+         
+         
+                             
+         <div class="listing-item">
+          <div class="listing-post">
+           <a href="https://www.lucoder.com/post/umiznB83M" title="OpenCV类型对照表">OpenCV类型对照表</a>
+           <div class="post-time">
+            <span class="date">2019-09-09 </span>
+           </div>
+          </div>
+         </div>
+         
+         
+                             
+         <div class="listing-item">
+          <div class="listing-post">
+           <a href="https://www.lucoder.com/post/Hm6MrGUmO" title="Windows系列产品大客户版批量激活">Windows系列产品大客户版批量激活</a>
+           <div class="post-time">
+            <span class="date">2019-08-04 </span>
+           </div>
+          </div>
+         </div>
+         
+         
+                             
+         <div class="listing-item">
+          <div class="listing-post">
+           <a href="https://www.lucoder.com/post/JViBv93-k" title="C++实现三维向量及其计算">C++实现三维向量及其计算</a>
+           <div class="post-time">
+            <span class="date">2019-08-01 </span>
+           </div>
+          </div>
+         </div>
+         
+         
+                             
+         <div class="listing-item">
+          <div class="listing-post">
+           <a href="https://www.lucoder.com/post/OAWZv9E8S" title="C#使用CUDA">C#使用CUDA</a>
+           <div class="post-time">
+            <span class="date">2019-07-29 </span>
+           </div>
+          </div>
+         </div>
+         
+         
+                             
+         <div class="listing-item">
+          <div class="listing-post">
+           <a href="https://www.lucoder.com/post/Xc_mGc7gi" title="C++ N叉树的实现">C++ N叉树的实现</a>
+           <div class="post-time">
+            <span class="date">2019-07-11 </span>
+           </div>
+          </div>
+         </div>
+         
+         
+                             
+         <div class="listing-item">
+          <div class="listing-post">
+           <a href="https://www.lucoder.com/post/6mprAxRaw" title="C++实现生产者消费者模型">C++实现生产者消费者模型</a>
+           <div class="post-time">
+            <span class="date">2019-06-19 </span>
+           </div>
+          </div>
+         </div>
+         
+         
+                             
+         <div class="listing-item">
+          <div class="listing-post">
+           <a href="https://www.lucoder.com/post/FytvdkoVq" title="免VPN下载知网、万方、维普论文">免VPN下载知网、万方、维普论文</a>
+           <div class="post-time">
+            <span class="date">2019-05-26 </span>
+           </div>
+          </div>
+         </div>
+         
+         
+                             
+         <div class="listing-item">
+          <div class="listing-post">
+           <a href="https://www.lucoder.com/post/wdCPCmcZk" title="C#使用MPI进行高性能计算">C#使用MPI进行高性能计算</a>
+           <div class="post-time">
+            <span class="date">2019-05-22 </span>
+           </div>
+          </div>
+         </div>
+         
+         
+                             
+         <div class="listing-item">
+          <div class="listing-post">
+           <a href="https://www.lucoder.com/post/zYn3rSk0P" title="高斯混合背景模型运动目标检测">高斯混合背景模型运动目标检测</a>
+           <div class="post-time">
+            <span class="date">2019-04-22 </span>
+           </div>
+          </div>
+         </div>
+         
+         
+                             
+         <div class="listing-item">
+          <div class="listing-post">
+           <a href="https://www.lucoder.com/post/dx8dpHIfN" title="Jetson TX2 不同的工作模式">Jetson TX2 不同的工作模式</a>
+           <div class="post-time">
+            <span class="date">2019-03-18 </span>
+           </div>
+          </div>
+         </div>
+         
+         
+                    
+         
+                    
+         
+                    
+         
+                    
+         
+                    
+         
+        </ul>
+        
+        <div class="listing-title">
+                2018
+        </div>
 
-AOS.init();
+        <ul class="listing">
 
-hljs.initHighlightingOnLoad()
+                
+                    
+         
+                    
+         
+                    
+         
+                    
+         
+                    
+         
+                    
+         
+                    
+         
+                    
+         
+                    
+         
+                    
+         
+                    
+         
+                    
+         
+                    
+         
+                    
+         
+                             
+         <div class="listing-item">
+          <div class="listing-post">
+           <a href="https://www.lucoder.com/post/rRRoX7zPA" title="使用Github建立博客系统">使用Github建立博客系统</a>
+           <div class="post-time">
+            <span class="date">2018-10-01 </span>
+           </div>
+          </div>
+         </div>
+         
+         
+                             
+         <div class="listing-item">
+          <div class="listing-post">
+           <a href="https://www.lucoder.com/post/BL8IfLp3F" title="Java中的SSM框架配置">Java中的SSM框架配置</a>
+           <div class="post-time">
+            <span class="date">2018-09-23 </span>
+           </div>
+          </div>
+         </div>
+         
+         
+                             
+         <div class="listing-item">
+          <div class="listing-post">
+           <a href="https://www.lucoder.com/post/egY_ZZMqj" title="联想拯救者电脑装Ubuntu没有WIFI">联想拯救者电脑装Ubuntu没有WIFI</a>
+           <div class="post-time">
+            <span class="date">2018-07-26 </span>
+           </div>
+          </div>
+         </div>
+         
+         
+                             
+         <div class="listing-item">
+          <div class="listing-post">
+           <a href="https://www.lucoder.com/post/oSDWdHMYK" title="Visual Studio Code 调试 SpringBoot">Visual Studio Code 调试 SpringBoot</a>
+           <div class="post-time">
+            <span class="date">2018-07-26 </span>
+           </div>
+          </div>
+         </div>
+         
+         
+                             
+         <div class="listing-item">
+          <div class="listing-post">
+           <a href="https://www.lucoder.com/post/CBl_WG5K_" title="JetsonTx2刷机">JetsonTx2刷机</a>
+           <div class="post-time">
+            <span class="date">2018-07-25 </span>
+           </div>
+          </div>
+         </div>
+         
+         
+        </ul>
+        	
+       </div>
+       <div class="pagination">
+        <ul class="clearfix"></ul>
+       </div>
+      </ul>
+     </div>
+    </div>
+   </div>
+  </div>
+   <script src="https://www.lucoder.com/media/scripts/jquery.js"></script>
+  <script src="https://www.lucoder.com/media/scripts/jquery-migrate-1.2.1.min.js"></script>
+  <script src="https://www.lucoder.com/media/scripts/jquery.appear.js"></script>
 
-var app = new Vue({
-  el: '#app',
-  data: {
-    menuVisible: false,
-  },
-})
 
-</script>
-
-
-
-
-  </body>
+ </body>
 </html>

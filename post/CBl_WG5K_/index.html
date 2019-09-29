@@ -1,133 +1,91 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" >
+<html lang="zh-CN">
+ <head>
+     <meta charset="utf-8" />
+  <title>JetsonTx2刷机 | 牧轩日志录</title>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+  <link rel="stylesheet" href="https://www.lucoder.com/styles/main.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+   <script src="https://cdn.staticfile.org/highlight.js/9.15.9/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+ </head>
+ <body>
+     <div class="sidebar animated fadeInDown">
+   <div class="logo-title">
+    <div class="title">
+     <img src="https://www.lucoder.com/images/avatar.png?v=1569718267427" style="width:127px;" />
 
-<title>JetsonTx2刷机 | 牧轩日志录</title>
-<meta name="description" content="&lt;p align=&#34;center&#34;&gt;
-Computational Optical and Remote Sensing Image Processing&lt;br /&gt;
-光学计算与遥感处理
-&lt;/p&gt;">
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://www.lucoder.com/favicon.ico?v=1569664055274">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-<link rel="stylesheet" href="https://www.lucoder.com/styles/main.css">
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
-
-
-  </head>
-  <body>
-    <div id="app" class="main">
-
-      <div class="sidebar" :class="{ 'full-height': menuVisible }">
-  <div class="top-container" data-aos="fade-right">
-    <div class="top-header-container">
-      <a class="site-title-container" href="https://www.lucoder.com">
-        <img src="https://www.lucoder.com/images/avatar.png?v=1569664055274" class="site-logo">
-        <h1 class="site-title">牧轩日志录</h1>
-      </a>
-      <div class="menu-btn" @click="menuVisible = !menuVisible">
-        <div class="line"></div>
-      </div>
-    </div>
-    <div>
-      
-        
-          <a href="/" class="site-nav">
-            首页
-          </a>
-        
-      
-        
-          <a href="/archives" class="site-nav">
-            归档
-          </a>
-        
-      
-        
-          <a href="/tags" class="site-nav">
-            标签
-          </a>
-        
-      
-        
-          <a href="https://www.lucoder.com/post/tools/" class="site-nav" target="_blank">
-            工具
-          </a>
-        
-      
-        
-          <a href="https://www.lucoder.com/post/links/" class="site-nav">
-            链接
-          </a>
-        
-      
-        
-          <a href="https://www.lucoder.com/post/link/" class="site-nav" target="_blank">
-            导航
-          </a>
-        
-      
-        
-          <a href="https://www.lucoder.com/post/about/" class="site-nav" target="_blank">
-            关于
-          </a>
-        
-      
-    </div>
-  </div>
-  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
-    <div class="social-container">
-      
-        
-          <a class="social-link" href="https://github.com/corsip" target="_blank">
-            <i class="fab fa-github"></i>
-          </a>
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    </div>
-    <div class="site-description">
-      <p align="center">
+     <div class="description">
+      <p><p align="center">
 Computational Optical and Remote Sensing Image Processing<br />
 光学计算与遥感处理
-</p>
+</p></p>
+     </div>
     </div>
-    <div class="site-footer">
-      <a href="/">牧轩居士</a> | <a href="https://pan.lucoder.com" target="_blank">网盘</a> | <a href="https://mirrors.lucoder.com" target="_blank">镜像</a> | <a href="https://oss.lucoder.com/" target="_blank">图床</a> | <a href="https://gridea.dev/" target="_blank">Gridea</a> | <a class="rss" href="https://www.lucoder.com/atom.xml" target="_blank">RSS</a>
+   </div>
+   <ul class="social-links">
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+   </ul>
+   <div class="footer">
+    <div class="by_farbox">
+   <a href="/">牧轩居士</a> | <a href="https://pan.lucoder.com" target="_blank">网盘</a> | <a href="https://mirrors.lucoder.com" target="_blank">镜像</a> | <a href="https://oss.lucoder.com/" target="_blank">图床</a> | <a href="https://gridea.dev/" target="_blank">Gridea</a>
     </div>
+    
+
+    </div>
+   </div>
   </div>
-</div>
+  <div class="main">
+     <div class="page-top animated fadeInDown">
+    <div class="nav">
+    
+     <li><a  href="/">首页</a></li>
 
+     <li><a  href="/archives">归档</a></li>
 
-      <div class="main-container">
-        <div class="content-container" data-aos="fade-up">
-          <div class="post-detail">
-            <h2 class="post-title">JetsonTx2刷机</h2>
-            <div class="post-date">2018-07-25</div>
-            
-              <div class="feature-container" style="background-image: url('https://oss.lucoder.com/uploads/2018/07/25/20180725120342.png')">
-              </div>
-            
-            <div class="post-content">
-              <p>Jetson TX2是有NVIDIA发布的一款Som（Ssytem on Module）嵌入式设备，该设备包含双核的丹弗2（NVIDIA Denver2）CPU和4个Cortex-A57的ARM核心，以及集成了拥有256个核心的Pascal GPU。拥有128位LPDDR4的8G内存一块，平台运行了Linux系统。Jetson TX2 拥有很高的计算性能，在预置的Ubuntu 16.04 LTS上测试，每秒计算超过1万亿次，并且原生支持FP16半精度计算。Jetson TX2拥有更低的功耗水平，在满载高性能计算情况下，仅需要7.5w的功率即可。所以Jetson TX2被广泛用于嵌入式GPU计算。</p>
+     <li><a  href="/tags">标签</a></li>
+
+     <li><a  href="https://www.lucoder.com/post/tools/">工具</a></li>
+
+     <li><a  href="https://www.lucoder.com/post/about/">关于</a></li>
+
+    </div>
+    <div class="information">
+     <div class="back_btn">
+      <li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li>
+     </div>
+    </div>
+   </div>
+   <div class="autopagerize_page_element">
+    <div class="content">
+     <div class="post-page">
+      <div class="post animated fadeInDown">
+       <div class="post-title">
+        <h3><a>JetsonTx2刷机</a></h3>
+       </div>
+       <div class="post-content">
+        <p>Jetson TX2是有NVIDIA发布的一款Som（Ssytem on Module）嵌入式设备，该设备包含双核的丹弗2（NVIDIA Denver2）CPU和4个Cortex-A57的ARM核心，以及集成了拥有256个核心的Pascal GPU。拥有128位LPDDR4的8G内存一块，平台运行了Linux系统。Jetson TX2 拥有很高的计算性能，在预置的Ubuntu 16.04 LTS上测试，每秒计算超过1万亿次，并且原生支持FP16半精度计算。Jetson TX2拥有更低的功耗水平，在满载高性能计算情况下，仅需要7.5w的功率即可。所以Jetson TX2被广泛用于嵌入式GPU计算。</p>
 <!--more-->
 <h1 id="下载jetson">下载Jetson</h1>
 <p>首先去<code>Nvidia</code>官网下载<code>Jetsonpack</code>，我用的<code>Jetpack 3.1</code>（<a href="https://developer.nvidia.com/embedded/jetpack">下载地址</a>）</p>
@@ -161,49 +119,50 @@ Computational Optical and Remote Sensing Image Processing<br />
 </code></pre>
 <p>刷机持续时间很长，可以出去散散步，喝杯水，大概持续10分钟刷机完成。途中风扇会一直转不用但心。</p>
 
-            </div>
-            
-              <div class="tag-container">
-                
-                  <a href="https://www.lucoder.com/tag/Jetson_TX2" class="tag">
-                    Jetson TX2
-                  </a>
-                
-                  <a href="https://www.lucoder.com/tag/Jetson" class="tag">
-                    Jetson
-                  </a>
-                
-              </div>
-            
-            
-
-            
-
-          </div>
-
+       </div>
+       <div class="post-footer">
+        <div class="meta">
+         <div class="info">
+          <i class="fa fa-sun-o"></i>
+          <span class="date">2018-07-25</span>
+          <i class="fa fa-tag"></i>
+          
+          <a class="tag" href="https://www.lucoder.com/tag/Jetson_TX2" title="Jetson TX2">Jetson TX2 </a>
+          
+          <a class="tag" href="https://www.lucoder.com/tag/Jetson" title="Jetson">Jetson </a>
+          
+         </div>
         </div>
+       </div>
       </div>
+      <div class="share">
+       <div class="evernote">
+        <a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a>
+       </div>
+       <div class="weibo">
+        <a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a>
+       </div>
+       <div class="twitter">
+        <a class="fa fa-twitter" href="http://twitter.com/home?status=,https://www.lucoder.com/post/CBl_WG5K_,;"></a>
+       </div>
+      </div>
+      <div class="pagination">
+       <ul class="clearfix">
+
+        <li class="pre pagbuttons"><a class="btn" role="navigation" href="https://www.lucoder.com/post/oSDWdHMYK" title="Visual Studio Code 调试 SpringBoot">上一篇</a></li>
+         
+        
+       </ul>
+      </div>
+        
+     </div>
     </div>
-
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-
-<script type="application/javascript">
-
-AOS.init();
-
-hljs.initHighlightingOnLoad()
-
-var app = new Vue({
-  el: '#app',
-  data: {
-    menuVisible: false,
-  },
-})
-
-</script>
+   </div>
+  </div>
+  <script src="https://www.lucoder.com/media/scripts/jquery.js"></script>
+  <script src="https://www.lucoder.com/media/scripts/jquery-migrate-1.2.1.min.js"></script>
+  <script src="https://www.lucoder.com/media/scripts/jquery.appear.js"></script>
 
 
-
-
-  </body>
+ </body>
 </html>
