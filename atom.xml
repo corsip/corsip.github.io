@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.lucoder.com</id>
     <title>牧轩日志录</title>
-    <updated>2019-10-03T15:50:59.638Z</updated>
+    <updated>2019-10-03T15:53:37.099Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.lucoder.com"/>
     <link rel="self" href="https://www.lucoder.com/atom.xml"/>
@@ -13,6 +13,13 @@ Computational Optical and Remote Sensing Image Processing&lt;br /&gt;
     <logo>https://www.lucoder.com/images/avatar.png</logo>
     <icon>https://www.lucoder.com/favicon.ico</icon>
     <rights>All rights reserved 2019, 牧轩日志录</rights>
+    <entry>
+        <title type="html"><![CDATA[测试文章]]></title>
+        <id>https://www.lucoder.com/post/ke3UXFDpj</id>
+        <link href="https://www.lucoder.com/post/ke3UXFDpj">
+        </link>
+        <updated>2019-10-03T15:53:25.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[GDAL波段分离]]></title>
         <id>https://www.lucoder.com/post/eJMrytUkr</id>
@@ -110,17 +117,6 @@ Computational Optical and Remote Sensing Image Processing&lt;br /&gt;
         <summary type="html"><![CDATA[<p>最近一个项目需要使用多叉树结构来存储数据，但是基于平时学习的都是二叉树的结构，以及网上都是二叉树为基础来进行学习，所以今天实现一个多叉树的数据结构。</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>最近一个项目需要使用多叉树结构来存储数据，但是基于平时学习的都是二叉树的结构，以及网上都是二叉树为基础来进行学习，所以今天实现一个多叉树的数据结构。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[C++实现生产者消费者模型]]></title>
-        <id>https://www.lucoder.com/post/6mprAxRaw</id>
-        <link href="https://www.lucoder.com/post/6mprAxRaw">
-        </link>
-        <updated>2019-06-19T08:32:53.000Z</updated>
-        <summary type="html"><![CDATA[<p>生产者-消费者模式是一个十分经典的多线程并发协作的模式，弄懂生产者-消费者问题能够让我们对并发编程的理解加深。所谓生产者-消费者问题，实际上主要是包含了两类线程，一种是生产者线程用于生产数据，另一种是消费者线程用于消费数据，为了解耦生产者和消费者的关系，通常会采用共享的数据区域，就像是一个仓库，生产者生产数据之后直接放置在共享数据区中，并不需要关心消费者的行为；而消费者只需要从共享数据区中去获取数据，就不再需要关心生产者的行为。但是，这个共享数据区域中应该具备这样的线程间并发协作的功能：</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>生产者-消费者模式是一个十分经典的多线程并发协作的模式，弄懂生产者-消费者问题能够让我们对并发编程的理解加深。所谓生产者-消费者问题，实际上主要是包含了两类线程，一种是生产者线程用于生产数据，另一种是消费者线程用于消费数据，为了解耦生产者和消费者的关系，通常会采用共享的数据区域，就像是一个仓库，生产者生产数据之后直接放置在共享数据区中，并不需要关心消费者的行为；而消费者只需要从共享数据区中去获取数据，就不再需要关心生产者的行为。但是，这个共享数据区域中应该具备这样的线程间并发协作的功能：</p>
 ]]></content>
     </entry>
 </feed>
