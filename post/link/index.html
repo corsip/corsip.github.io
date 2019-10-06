@@ -12,10 +12,16 @@ Computational Optical and Remote Sensing Image Processing&lt;br /&gt;
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://www.lucoder.com/favicon.ico?v=1569718591972">
+<link rel="shortcut icon" href="https://www.lucoder.com/favicon.ico?v=1570352629465">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://www.lucoder.com/styles/main.css">
 
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
 
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -33,7 +39,7 @@ Computational Optical and Remote Sensing Image Processing&lt;br /&gt;
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://www.lucoder.com">
-        <img src="https://www.lucoder.com/images/avatar.png?v=1569718591972" class="site-logo">
+        <img src="https://www.lucoder.com/images/avatar.png?v=1570352629465" class="site-logo">
         <h1 class="site-title">牧轩日志录</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -139,6 +145,12 @@ Computational Optical and Remote Sensing Image Processing<br />
             
 
             
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
 
           </div>
 
@@ -162,6 +174,29 @@ var app = new Vue({
 })
 
 </script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '13426e82028fbd4e105b',
+        clientSecret: 'e52aa177be9bfd967bd60f5a663c62778570da6c',
+        repo: 'corsip',
+        owner: 'corsip',
+        admin: ['corsip'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
 
 
 
