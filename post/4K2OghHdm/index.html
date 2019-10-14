@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>MPI | 牧轩日志录</title>
+<title>C++实现队列 | 牧轩日志录</title>
 <meta name="description" content="&lt;p align=&#34;center&#34;&gt;
 Computational Optical and Remote Sensing Image Processing&lt;br /&gt;
 光学计算与遥感处理
@@ -113,34 +113,138 @@ Computational Optical and Remote Sensing Image Processing<br />
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="current-tag">标签: MPI</h2>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://www.lucoder.com/post/wdCPCmcZk">
-                  <h2 class="post-title">C#使用MPI进行高性能计算</h2>
-                </a>
-                <div class="post-date">
-                  2019-05-22
-                </div>
-                <div class="post-abstract">
-                  <p>MPI.NET是用于Microsoft.NET环境的高性能、易于使用的消息传递接口（MPI）实现。mpi是编写在分布式内存系统（如计算集群）上运行的并行程序的事实上的标准，并且得到了广泛的实现。大多数MPI实现为在C、C++和FORTRAN中编写MPI程序提供了支持。mpi.net提供了对所有.net语言（尤其是c）的支持，并包含重要的扩展（例如对象的自动序列化），使构建在群集上运行的并行程序更加容易。</p>
+          <div class="post-detail">
+            <h2 class="post-title">C++实现队列</h2>
+            <div class="post-date">2019-10-14</div>
+            
+            <div class="post-content">
+              <p>程序源码：</p>
+<pre><code class="language-cpp">//
+// Created by Xiaoyong on 2019/10/12.
+//
+#include &lt;iostream&gt;
+#include &lt;stdio.h&gt;
+#ifndef ORSDS_XQUEUE_H
+#define ORSDS_XQUEUE_H
+using namespace std;
+template &lt;typename T&gt;
+class XQueue {
+private:
+    T* factory;
+    int size = 0;
+public:
+    struct Params{
+        int size;
+    }params;
+    XQueue&lt;T&gt;();
+    ~XQueue&lt;T&gt;();
+    void init();
+    void push(T item);
+    int length();
+    T pop();
+    T getTop();
+    bool isFull();
+    void print();
+};
 
-                </div>
+template &lt;typename T&gt;
+XQueue&lt;T&gt;::XQueue() {}
+
+template &lt;typename T&gt;
+XQueue&lt;T&gt;::~XQueue() {
+    delete(this-&gt;factory);
+}
+
+template &lt;typename T&gt;
+void XQueue&lt;T&gt;::init(){
+    this-&gt;factory = new T[this-&gt;params.size];
+}
+
+template &lt;typename T&gt;
+int XQueue&lt;T&gt;::length() { return this-&gt;size; }
+
+template &lt;typename T&gt;
+bool XQueue&lt;T&gt;::isFull() { return this-&gt;size &gt;= this-&gt;params.size; }
+
+template &lt;typename T&gt;
+T XQueue&lt;T&gt;::getTop() { return this-&gt;factory[0]; }
+
+template &lt;typename T&gt;
+void XQueue&lt;T&gt;::push(T item) {
+    if(!this-&gt;isFull()){
+        this-&gt;factory[this-&gt;size] = item;
+        this-&gt;size++;
+    }else{
+        for (int i = 1; i &lt; this-&gt;params.size; ++i)
+            this-&gt;factory[i-1] = this-&gt;factory[i];
+
+        this-&gt;factory[this-&gt;params.size - 1] = item;
+    }
+}
+
+template &lt;typename T&gt;
+T XQueue&lt;T&gt;::pop() {
+    //T ele = this-&gt;factory
+    T element = this-&gt;factory[0];
+    for (int i = 1; i &lt; this-&gt;params.size; ++i)
+        this-&gt;factory[i-1] = this-&gt;factory[i];
+    this-&gt;size--;
+
+    return element;
+}
+
+template &lt;typename T&gt;
+void XQueue&lt;T&gt;::print(){
+    for (int i = 0; i &lt; this-&gt;size; ++i) {
+        cout&lt;&lt;this-&gt;factory[i]&lt;&lt;&quot;\t&quot;;
+    }
+    cout&lt;&lt;endl;
+}
+#endif //ORSDS_XQUEUE_H
+</code></pre>
+<p>调用方法：</p>
+<pre><code class="language-cpp">XQueue&lt;int&gt; queue;
+    queue.params.size = 5;
+    queue.init();
+    for (int i = 0; i &lt; 10; ++i) {
+        queue.push(i);
+        cout &lt;&lt; queue.getTop()&lt;&lt; &quot;\t&quot; &lt;&lt; i &lt;&lt; endl;
+    }
+    queue.print();
+</code></pre>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://www.lucoder.com/tag/DataStructure" class="tag">
+                    数据结构
+                  </a>
+                
+                  <a href="https://www.lucoder.com/tag/C++" class="tag">
+                    C++
+                  </a>
+                
+                  <a href="https://www.lucoder.com/tag/alogrithm" class="tag">
+                    算法
+                  </a>
+                
               </div>
-              
-                <a class="right" href="https://www.lucoder.com/post/wdCPCmcZk">
-                  <div class="feature-container" style="background-image: url('https://oss.lucoder.com/md/2019/05/22/20190522203302.png')">
-                  </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://www.lucoder.com/post/eJMrytUkr">
+                  <h3 class="post-title">
+                    GDAL波段分离
+                  </h3>
                 </a>
-              
-            </article>
-          
+              </div>
+            
 
-          <div class="pagination-container">
-  
-  
-</div>
+            
+
+          </div>
 
         </div>
       </div>
