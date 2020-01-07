@@ -12,7 +12,7 @@ Computational Optical and Remote Sensing Image Processing&lt;br /&gt;
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://www.lucoder.com/favicon.ico?v=1569718591972">
+<link rel="shortcut icon" href="https://www.lucoder.com/favicon.ico?v=1578384584625">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://www.lucoder.com/styles/main.css">
 
@@ -33,7 +33,7 @@ Computational Optical and Remote Sensing Image Processing&lt;br /&gt;
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://www.lucoder.com">
-        <img src="https://www.lucoder.com/images/avatar.png?v=1569718591972" class="site-logo">
+        <img src="https://www.lucoder.com/images/avatar.png?v=1578384584625" class="site-logo">
         <h1 class="site-title">牧轩日志录</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -156,22 +156,22 @@ Computational Optical and Remote Sensing Image Processing<br />
 <p>本小结介绍使用C++语言开发CUDA程序的共享链接库的方法以及如何使用C#语言调用CUDA类库。</p>
 <h3 id="创建c类库">创建C++类库</h3>
 <p>首先打开Visual Studio，然后创建C++的动态链接库项目，注意一定是动态链接库，请勿使用静态链接库，可能会有错误。</p>
-<figure data-type="image" tabindex="1"><img src="https://oss.lucoder.com/uploads/2019/07/29/20190729092151.png" alt="20190729092151"></figure>
-<figure data-type="image" tabindex="2"><img src="https://oss.lucoder.com/uploads/2019/07/29/20190729092227.png" alt="20190729092227"></figure>
+<figure data-type="image" tabindex="1"><img src="https://oss.lucoder.com/uploads/2019/07/29/20190729092151.png" alt="20190729092151" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://oss.lucoder.com/uploads/2019/07/29/20190729092227.png" alt="20190729092227" loading="lazy"></figure>
 <p>项目创建完毕之后可以看到下面的界面：</p>
-<figure data-type="image" tabindex="3"><img src="https://oss.lucoder.com/uploads/2019/07/29/20190729092250.png" alt="20190729092250"></figure>
+<figure data-type="image" tabindex="3"><img src="https://oss.lucoder.com/uploads/2019/07/29/20190729092250.png" alt="20190729092250" loading="lazy"></figure>
 <p>创建一个和外界交互的<code>cudaApi.h</code>文件、两个和CUDA相关的文件<code>CudaKernel.cuh</code>和<code>CudaKernel.cu</code>，当然可以缺省为一个文件，但是本着约定大于配置的原则，建议使用两个文件，一个是CUDA的源码文件一个是CUDA的头文件，在头文件中声明函数，源码文件对函数进行实现，之后效果如下：</p>
-<figure data-type="image" tabindex="4"><img src="https://oss.lucoder.com/uploads/2019/07/29/20190729092322.png" alt="20190729092322"></figure>
-<figure data-type="image" tabindex="5"><img src="https://oss.lucoder.com/uploads/2019/07/29/20190729092433.png" alt="20190729092433"></figure>
+<figure data-type="image" tabindex="4"><img src="https://oss.lucoder.com/uploads/2019/07/29/20190729092322.png" alt="20190729092322" loading="lazy"></figure>
+<figure data-type="image" tabindex="5"><img src="https://oss.lucoder.com/uploads/2019/07/29/20190729092433.png" alt="20190729092433" loading="lazy"></figure>
 <p>然后配置一下工程，需要注意的是建议全局是x64环境，必须保证C++的动态链接库项目和C#的项目是同一种类型，一般FX(.NET Framework)默认的是Any CPU，不要使用这个选项，直接指定x64或者x86。</p>
 <p>右键选中项目，【生成依赖】 --&gt; 【自定义生成】 --&gt; 【勾选CUDA10】(当然不排除你的事CUDA9或者CUDA8)</p>
-<figure data-type="image" tabindex="6"><img src="https://oss.lucoder.com/uploads/2019/07/29/20190729094355.png" alt="20190729094355"></figure>
-<figure data-type="image" tabindex="7"><img src="https://oss.lucoder.com/uploads/2019/07/29/20190729094420.png" alt="20190729094420"></figure>
+<figure data-type="image" tabindex="6"><img src="https://oss.lucoder.com/uploads/2019/07/29/20190729094355.png" alt="20190729094355" loading="lazy"></figure>
+<figure data-type="image" tabindex="7"><img src="https://oss.lucoder.com/uploads/2019/07/29/20190729094420.png" alt="20190729094420" loading="lazy"></figure>
 <p>然后选择两个CUDA的核文件，选择属性，选中CUDA C/C++</p>
-<figure data-type="image" tabindex="8"><img src="https://oss.lucoder.com/uploads/2019/07/29/20190729094624.png" alt="20190729094624"></figure>
-<figure data-type="image" tabindex="9"><img src="https://oss.lucoder.com/uploads/2019/07/29/20190729094656.png" alt="20190729094656"></figure>
+<figure data-type="image" tabindex="8"><img src="https://oss.lucoder.com/uploads/2019/07/29/20190729094624.png" alt="20190729094624" loading="lazy"></figure>
+<figure data-type="image" tabindex="9"><img src="https://oss.lucoder.com/uploads/2019/07/29/20190729094656.png" alt="20190729094656" loading="lazy"></figure>
 <p>最后选中项目右键，找到【连接器】--&gt; 【输入】，在类库中输入<code>cudart.lib</code>，点击确定。</p>
-<figure data-type="image" tabindex="10"><img src="https://oss.lucoder.com/uploads/2019/07/29/20190729095129.png" alt="20190729095129"></figure>
+<figure data-type="image" tabindex="10"><img src="https://oss.lucoder.com/uploads/2019/07/29/20190729095129.png" alt="20190729095129" loading="lazy"></figure>
 <p>作为初期实验，建议先复制我的代码，先理解这个流程之后再自己自定义创建CUDA类库。</p>
 <pre><code class="language-cpp">//cudaApi.h
 #pragma once
@@ -260,8 +260,8 @@ Error:
 }
 </code></pre>
 <p>重新生成程序如果不报错就可以成功生成一个CUDA的DLL动态链接库。</p>
-<figure data-type="image" tabindex="11"><img src="https://oss.lucoder.com/uploads/2019/07/29/20190729095458.png" alt="20190729095458"></figure>
-<figure data-type="image" tabindex="12"><img src="https://oss.lucoder.com/uploads/2019/07/29/20190729095619.png" alt="20190729095619"></figure>
+<figure data-type="image" tabindex="11"><img src="https://oss.lucoder.com/uploads/2019/07/29/20190729095458.png" alt="20190729095458" loading="lazy"></figure>
+<figure data-type="image" tabindex="12"><img src="https://oss.lucoder.com/uploads/2019/07/29/20190729095619.png" alt="20190729095619" loading="lazy"></figure>
 <p>到此为止CUDA的动态链接库编写完成，开始编写C#程序，本程序使用的是<code>.NET Core 2.2</code>，如果你的电脑没有此环境可以自己创建一个C#的控制台项目，代码均相同。</p>
 <h3 id="创建c类库-2">创建C#类库</h3>
 <p>创建C#项目不再赘述，直接创建控制台项目即可完成测试，下面提供一个我的C#的一个类作为参考：</p>
@@ -287,10 +287,10 @@ class CudaRunner
     }
 </code></pre>
 <p>然后在控制台的<code>Program.cs</code>中调用一下即可，再次强调，这里不要使用<code>Any CPU</code>！！！</p>
-<figure data-type="image" tabindex="13"><img src="https://oss.lucoder.com/uploads/2019/07/29/20190729100456.png" alt="20190729100456"></figure>
+<figure data-type="image" tabindex="13"><img src="https://oss.lucoder.com/uploads/2019/07/29/20190729100456.png" alt="20190729100456" loading="lazy"></figure>
 <h2 id="实验环节">实验环节</h2>
 <p>实验环节很简单，如果你是用的我的程序可以直接运行查看效果，这是一个矩阵的加法。</p>
-<figure data-type="image" tabindex="14"><img src="https://oss.lucoder.com/uploads/2019/07/29/20190729100704.png" alt="20190729100704"></figure>
+<figure data-type="image" tabindex="14"><img src="https://oss.lucoder.com/uploads/2019/07/29/20190729100704.png" alt="20190729100704" loading="lazy"></figure>
 <h2 id="结论与总结">结论与总结</h2>
 <p>到上面的实验环节基本程序部分已经结束，但是你可能会发现使用GPU计算这些数据的速度并没有CPU的快速，原因在哪呢？归结一下两个原因<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mrow></mrow><mrow><mo>[</mo><mn>2</mn><mo>]</mo></mrow></msup></mrow><annotation encoding="application/x-tex">^{[2]}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8879999999999999em;vertical-align:0em;"></span><span class="mord"><span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">[</span><span class="mord mtight">2</span><span class="mclose mtight">]</span></span></span></span></span></span></span></span></span></span></span></span>：</p>
 <ol>

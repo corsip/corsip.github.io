@@ -12,7 +12,7 @@ Computational Optical and Remote Sensing Image Processing&lt;br /&gt;
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://www.lucoder.com/favicon.ico?v=1569718591972">
+<link rel="shortcut icon" href="https://www.lucoder.com/favicon.ico?v=1578384584625">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://www.lucoder.com/styles/main.css">
 
@@ -33,7 +33,7 @@ Computational Optical and Remote Sensing Image Processing&lt;br /&gt;
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://www.lucoder.com">
-        <img src="https://www.lucoder.com/images/avatar.png?v=1569718591972" class="site-logo">
+        <img src="https://www.lucoder.com/images/avatar.png?v=1578384584625" class="site-logo">
         <h1 class="site-title">牧轩日志录</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -125,7 +125,7 @@ Computational Optical and Remote Sensing Image Processing<br />
 <p>Build Anything with Spring Boot：Spring Boot is the starting point for building all Spring-based applications. Spring Boot is designed to get you up and running as quickly as possible, with minimal upfront configuration of Spring.</p>
 </blockquote>
 <!-- more -->
-<figure data-type="image" tabindex="1"><img src="https://upload-images.jianshu.io/upload_images/7896890-9323041dd0ce883e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Spring Boot"></figure>
+<figure data-type="image" tabindex="1"><img src="https://upload-images.jianshu.io/upload_images/7896890-9323041dd0ce883e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Spring Boot" loading="lazy"></figure>
 <p>大概意思翻译一下：Spring Boot 是所有基于 Spring 开发的项目的起点。Spring Boot 的设计是为了让你尽可能快的跑起来 Spring 应用程序并且尽可能减少你的配置文件。这些都不再多说，Java 的Spring Boot我个人来说还是比较看好的。</p>
 <p>Visual Studio Code (简称 VS Code / VSC) 是一款免费开源的现代化轻量级代码编辑器，支持几乎所有主流的开发语言的语法高亮、智能代码补全、自定义热键、括号匹配、代码片段、代码对比 Diff、GIT 等特性，支持插件扩展，并针对网页开发和云端应用开发做了优化。软件跨平台支持 Win、Mac 以及 Linux。他最强大的地方是微软的<code>Language Server</code>，这货可以通过插件的方法支持<code>Java</code>、<code>C#</code>、<code>Python</code>、<code>Typescript</code>、<code>PHP</code>....</p>
 <p>说了这么多的废话，开始引出本文的重点：<code>Spring Boot调试</code>。</p>
@@ -167,7 +167,7 @@ System.out.println(&quot;Hello world!&quot;);
 <p>然后点击调试<code>蜘蛛图标</code>，直接点击调试(注意直接点击，先别配置，使用Vscode默认配置足以！)，首次将会非常慢。结合我的原因，应该是<code>maven</code>下载数据包和初始化引擎所致。</p>
 <h1 id="代码调试">代码调试</h1>
 <p>点击运行，妈耶！好神奇，环境好了！</p>
-<figure data-type="image" tabindex="2"><img src="https://oss.lucoder.com/uploads/2018/07/26/20180726165210.png" alt="Hello world"></figure>
+<figure data-type="image" tabindex="2"><img src="https://oss.lucoder.com/uploads/2018/07/26/20180726165210.png" alt="Hello world" loading="lazy"></figure>
 <h1 id="来点复杂的调试">来点复杂的调试</h1>
 <p>下面来点复杂的调试，首先我们创建一个模型Blog，一个控制器BlogSpiderController，然后开始下面的工作：</p>
 <pre><code class="language-Java">package com.mx.models;
@@ -265,7 +265,7 @@ public class BlogSpiderController {
 <li>按照vs习惯，下设断点。</li>
 </ol>
 <p>同样的，在代码左侧双击下设断点，在断点监视器也可以随时修改断点。</p>
-<figure data-type="image" tabindex="3"><img src="https://oss.lucoder.com/uploads/2018/07/26/20180726165304.png" alt="断点设置"></figure>
+<figure data-type="image" tabindex="3"><img src="https://oss.lucoder.com/uploads/2018/07/26/20180726165304.png" alt="断点设置" loading="lazy"></figure>
 <ol start="2">
 <li>点击调试</li>
 </ol>
@@ -274,16 +274,16 @@ public class BlogSpiderController {
 2). 堆栈调用情况<br>
 3). 变量变化情况</p>
 <p>分别从下面几块儿查看数据。</p>
-<figure data-type="image" tabindex="4"><img src="https://oss.lucoder.com/uploads/2018/07/26/20180726165432.png" alt="变量域"></figure>
+<figure data-type="image" tabindex="4"><img src="https://oss.lucoder.com/uploads/2018/07/26/20180726165432.png" alt="变量域" loading="lazy"></figure>
 <ol start="3">
 <li>查看调试信息</li>
 </ol>
-<figure data-type="image" tabindex="5"><img src="https://oss.lucoder.com/uploads/2018/07/26/20180726165411.png" alt="调试信息"></figure>
-<figure data-type="image" tabindex="6"><img src="https://oss.lucoder.com/uploads/2018/07/26/20180726165503.png" alt="调试信息"></figure>
+<figure data-type="image" tabindex="5"><img src="https://oss.lucoder.com/uploads/2018/07/26/20180726165411.png" alt="调试信息" loading="lazy"></figure>
+<figure data-type="image" tabindex="6"><img src="https://oss.lucoder.com/uploads/2018/07/26/20180726165503.png" alt="调试信息" loading="lazy"></figure>
 <blockquote>
 <p>总结</p>
 </blockquote>
-<figure data-type="image" tabindex="7"><img src="https://oss.lucoder.com/uploads/2018/07/26/20180726165607.png" alt="程序结果"></figure>
+<figure data-type="image" tabindex="7"><img src="https://oss.lucoder.com/uploads/2018/07/26/20180726165607.png" alt="程序结果" loading="lazy"></figure>
 <p>本文主要使用Spring Boot Console程序演示Spring Boot的调试过程，但是Spring Boot如果是面向于Web端或许更加合适，但是Web代码编写相对复杂，所以选用了Console来演示调试过程。</p>
 <p>【源代码】：<a href="http://skpan.com/fs/4lfu0c7oad5e9r2com3/">YunFile</a></p>
 
