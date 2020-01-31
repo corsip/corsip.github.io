@@ -12,7 +12,7 @@ Computational Optical and Remote Sensing Image Processing&lt;br /&gt;
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://www.lucoder.com/favicon.ico?v=1580399576661">
+<link rel="shortcut icon" href="https://www.lucoder.com/favicon.ico?v=1580437538604">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://www.lucoder.com/styles/main.css">
 
@@ -33,7 +33,7 @@ Computational Optical and Remote Sensing Image Processing&lt;br /&gt;
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://www.lucoder.com">
-        <img src="https://www.lucoder.com/images/avatar.png?v=1580399576661" class="site-logo">
+        <img src="https://www.lucoder.com/images/avatar.png?v=1580437538604" class="site-logo">
         <h1 class="site-title">牧轩日志录</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -149,7 +149,7 @@ custom_domains = www.yourdomain.com # 绑定你的域名
 server_addr = frp.lucoder.com   # frp服务器
 server_port = 7000              # frp 服务器端口
 
-[test_htts2http]
+[test_htts2http]                # 服务器标志符号
 type = https
 custom_domains = test.yourdomain.com
 
@@ -162,6 +162,10 @@ plugin_key_path = ./server.key
 plugin_host_header_rewrite = 127.0.0.1
 plugin_header_X-From-Where = frp
 </code></pre>
+<ol>
+<li>这个是方法是我们建议的方法。当然，你也可以使用nginx反向代理方式，但是nginx不要使用443 和 80 端口，因为443和80务必留给frp使用！</li>
+<li>标志符号可能会重复导致无法启动，所以我们建议使用和域名相关的标志符，比如：[web_your_domain_com]类似方式</li>
+</ol>
 <h2 id="ssh服务">ssh服务</h2>
 <p>下面介绍如何使用frp访问家里电脑，注意端口请勿选择保留端口。</p>
 <pre><code class="language-ini">[common]
@@ -180,7 +184,8 @@ remote_port = $portOfYours      # 你设置的端口号
 # 输入你的ssh
 ssh frp.lucoder.com -p $portOfYours
 </code></pre>
-<h2 id="远程桌面服务">远程桌面服务</h2>
+<p>本站服务仅为调试使用，请勿长时间占用相关端口，每一个月15号和30号都会自动重启服务。</p>
+<h2 id="远程桌面服务未经实验">远程桌面服务【未经实验】</h2>
 <p>下面介绍如何使用frp访问家里电脑，注意端口请勿选择保留端口。</p>
 <pre><code class="language-ini">[common]
 server_addr = frp.lucoder.com   # frp服务器
