@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>FRP | 牧轩日志录</title>
 <meta name="description" content="" />
-<link rel="shortcut icon" href="https://corsip.github.io/favicon.ico?v=1580542345946">
+<link rel="shortcut icon" href="https://corsip.github.io/favicon.ico?v=1580545318404">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://corsip.github.io/styles/main.css">
@@ -20,7 +20,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://corsip.github.io">
-  <img class="avatar" src="https://corsip.github.io/images/avatar.png?v=1580542345946" alt="">
+  <img class="avatar" src="https://corsip.github.io/images/avatar.png?v=1580545318404" alt="">
   </a>
   <h1 class="site-title">
     牧轩日志录
@@ -98,7 +98,11 @@
 <h1 id="官网">官网</h1>
 <p>官网：<a href="https://github.com/fatedier/frp">https://github.com/fatedier/frp</a></p>
 <h1 id="动手搭建">动手搭建</h1>
-<p>目前有很多内网穿透技术，比如花生壳、DDNS映射、Ngrok、FRP、NSP等不计其数，由于笔者初衷是建立一个下载站(<a href="https://mirrors.lucoder.com">https://mirrors.lucoder.com</a>)。所以在树莓派搭建一个网盘程序。</p>
+<p>目前有很多内网穿透技术，比如花生壳、DDNS映射、Ngrok、FRP、NSP等不计其数，由于笔者初衷是建立一个镜像站(<a href="https://mirrors.lucoder.com">https://mirrors.lucoder.com</a>)。选择Frp有两个原因：</p>
+<ol>
+<li>服务器带宽有限，Frp负责初次建立连接，不走服务器流量</li>
+<li>frp配置简单，可以当做nginx类似使用。</li>
+</ol>
 <h1 id="本站服务">本站服务</h1>
 <blockquote>
 <p>写在前面：服务器部署在阿里云，没有备案域名的基本不用继续往下看了，因为没有备案域名阿里会拦截！<br>
